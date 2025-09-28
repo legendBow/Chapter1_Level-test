@@ -11,6 +11,7 @@ b) `document.querySelector('div')`
 c) `document.getElementById('myDiv')`  
 d) `document.querySelectorAll('div')[0]`
 
+answer : b
 ---
 
 ### 문제 2 (중급)
@@ -22,6 +23,7 @@ b) `event.stopPropagation()`
 c) `event.stopImmediatePropagation()`  
 d) `event.cancelBubble = true`
 
+answer : a
 ---
 
 ### 문제 3 (중급)
@@ -39,6 +41,7 @@ b) 3, 3, 3
 c) 1, 2, 3  
 d) undefined, undefined, undefined
 
+answer : a
 ---
 
 ### 문제 4 (중급)
@@ -50,6 +53,7 @@ b) let은 호이스팅되지 않는다
 c) let은 재선언이 불가능하다  
 d) let은 temporal dead zone을 가진다
 
+answer : d
 ---
 
 ### 문제 5 (중급)
@@ -61,6 +65,7 @@ b) `{...obj}`
 c) `JSON.parse(JSON.stringify(obj))`  
 d) `obj.slice()`
 
+answer : b
 ---
 
 ### 문제 6 (중급)
@@ -72,6 +77,7 @@ b) fulfilled
 c) rejected  
 d) resolved
 
+answer : c
 ---
 
 ### 문제 7 (중급)
@@ -83,6 +89,7 @@ b) `""`
 c) `[]`  
 d) `null`
 
+answer : c
 ---
 
 ### 문제 8 (중급)
@@ -99,6 +106,7 @@ b) "object", "undefined"
 c) "null", "null"  
 d) "object", "object"
 
+answer : b
 ---
 
 ### 문제 9 (중급)
@@ -110,6 +118,7 @@ b) 함수가 호출된 스코프의 변수에 접근할 수 있는 것
 c) 전역 변수에만 접근할 수 있는 것  
 d) 지역 변수에만 접근할 수 있는 것
 
+answer : 모름
 ---
 
 ### 문제 10 (중급)
@@ -121,6 +130,7 @@ b) `pop()`
 c) `slice(-1)`  
 d) `splice(-1, 1)`
 
+answer : b
 ---
 
 ### 문제 11 (중급)
@@ -140,6 +150,7 @@ b) 2
 c) undefined  
 d) 에러 발생
 
+answer : a
 ---
 
 ### 문제 12 (중급)
@@ -151,6 +162,7 @@ b) await는 async 함수 내에서만 사용할 수 있다
 c) await는 Promise가 resolve될 때까지 기다린다  
 d) async/await는 동기적으로 실행된다
 
+answer : 모름
 ---
 
 ### 문제 13 (중급)
@@ -162,6 +174,7 @@ b) `number`
 c) `boolean`  
 d) `array`
 
+answer : d
 ---
 
 ### 문제 14 (중급)
@@ -173,6 +186,7 @@ b) 동적으로 추가된 요소에도 이벤트 적용
 c) 이벤트 처리 속도 향상  
 d) 코드 복잡성 감소
 
+answer : 모름
 ---
 
 ### 문제 15 (중급)
@@ -191,6 +205,7 @@ b) 4
 c) undefined  
 d) 에러 발생
 
+answer : a
 ---
 
 ### 문제 16 (고급)
@@ -209,6 +224,7 @@ b) "11", "11", 0, 0
 c) 2, "11", 0, 0  
 d) "11", "11", NaN, NaN
 
+answer : d
 ---
 
 ### 문제 17 (고급)
@@ -220,6 +236,7 @@ b) 프로토타입 체인은 무한히 연결될 수 있다
 c) 모든 객체의 프로토타입 체인은 Object.prototype에서 끝난다  
 d) 프로토타입 체인은 런타임에 변경할 수 없다
 
+answer : 모름
 ---
 
 ### 문제 18 (고급)
@@ -231,6 +248,7 @@ b) 객체 메서드로 호출
 c) 생성자로 호출  
 d) 모든 상황에서 다르다
 
+answer : 모름
 ---
 
 ### 문제 19 (고급)
@@ -252,6 +270,7 @@ b) 2
 c) 3  
 d) 에러 발생
 
+answer : 모름
 ---
 
 ### 문제 20 (고급)
@@ -263,6 +282,7 @@ b) WeakMap은 iterable하지 않다
 c) WeakMap은 가비지 컬렉션에 영향을 주지 않는다  
 d) WeakMap은 크기를 확인할 수 없다
 
+answer : 모름
 ---
 
 ### 문제 21 (고급)
@@ -284,6 +304,7 @@ b) `const instance = new MyClass()`
 c) `const instance = MyClass.create()`  
 d) `const instance = Object.create(MyClass)`
 
+answer : 모름
 ---
 
 ### 문제 22 (고급)
@@ -307,6 +328,7 @@ b) undefined
 c) null  
 d) 에러 발생
 
+answer : c
 ---
 
 ### 문제 23 (고급)
@@ -318,6 +340,7 @@ b) Promise.then() 콜백
 c) requestAnimationFrame 콜백  
 d) setImmediate 콜백
 
+answer : 모름
 ---
 
 ### 문제 24 (고급)
@@ -329,6 +352,7 @@ b) CommonJS는 동적으로 모듈을 로드할 수 있다
 c) import문은 호이스팅된다  
 d) export default는 여러 번 사용할 수 있다
 
+answer : 모름
 ---
 
 ### 문제 25 (고급)
@@ -347,6 +371,7 @@ b) false, false
 c) true, false  
 d) false, true
 
+answer : d
 ---
 
 ### 문제 26 (고급)
@@ -358,6 +383,7 @@ b) 모든 JavaScript 값에 사용할 수 있다
 c) 성능 오버헤드가 없다  
 d) IE에서 완전히 지원된다
 
+answer : 모름
 ---
 
 ### 문제 27 (고급)
@@ -381,6 +407,7 @@ b) 클로저로 인해 data가 가비지 컬렉션되지 않는다
 c) 함수가 반환되지 않는다  
 d) 메모리 누수가 발생하지 않는다
 
+answer : 모름
 ---
 
 ### 문제 28 (고급)
@@ -392,6 +419,7 @@ b) yield 키워드로 값을 반환한다
 c) 이터레이터 프로토콜을 구현한다  
 d) 한 번 실행되면 다시 실행할 수 없다
 
+answer : 모름
 ---
 
 ### 문제 29 (고급)
@@ -410,6 +438,7 @@ b) 11, undefined
 c) 4, null  
 d) 11, null
 
+answer : undefined과 null에 대한 차이 개념 모호함
 ---
 
 ### 문제 30 (고급)
@@ -421,6 +450,7 @@ b) `localStorage`
 c) `setTimeout()`  
 d) `Object.assign()`
 
+answer : 모름
 ---
 
 ---
