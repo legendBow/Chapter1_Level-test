@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * {
+        margin : 0;
+        padding : 0;
+        box-sizing: border-box;
+      }
+
+      .input_box_wrap {
+        margin-block: 20px 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- 1번 html -->
+    <h1>1번 문제</h1>
+    <div class="input_box_wrap">
+      <label>
+          이름 : 
+          <input type="text" id="input_name" class="input_box">
+      </label><br/>
+      <label>
+          비밀번호 : 
+          <input type="text" id="input_pw" class="input_box">
+      </label>
+    </div>
+
+    <script>
+    //   1번 js코드 (방법1)
+    
+    // const input_name = document.querySelector('#input_name');
+    // const input_pw = document.querySelector('#input_pw');
+    
+    // 마우스 포커스를 얻으면 창의 배경색을 노랑색으로
+    // input_name.addEventListener('focus', () => {
+    //   document.querySelector('#input_name').style.backgroundColor = 'yellow';
+    // });
+
+    // input_pw.addEventListener('focus', () => {
+    //   document.querySelector('#input_pw').style.backgroundColor = 'yellow';
+    // });
+    
+    // 마우스 포커스를 잃으면 배경색을 원래대로
+    // input_name.addEventListener('blur', () => {
+    //   document.querySelector('#input_name').style.backgroundColor = 'white';
+    // })
+
+    // input_pw.addEventListener('blur', () => {
+    //   document.querySelector('#input_pw').style.backgroundColor = 'white';
+    // })
+
+    // ------------------------------------------------------------------
+
+    // 1번 js코드 (방법2)
+    const input_boxs = document.querySelectorAll('.input_box');
+    input_boxs.forEach(input_box => {
+      // (1) 마우스 포커스를 얻으면 창의 배경색을 노랑
+      input_box.addEventListener('focus', () => {
+        for(i = 0; i < input_boxs.length; i++) {
+          // 모든 input 배경색 초기화
+          input_box.style.backgroundColor = 'white';
+        }
+
+        // 현재 focus된 input에만 노란색
+        input_box.style.backgroundColor = 'yellow';
+      })
+    
+      // (2) 마우스 포커스를 잃으면 배경색을 원래대로
+      input_box.addEventListener('blur', () => {
+        input_box.style.backgroundColor = 'white';
+      })
+    })
+
+    </script>
+  </body>
+</html>

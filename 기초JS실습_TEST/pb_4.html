@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+        * {
+            margin : 0;
+            padding : 0;
+            box-sizing: border-box;
+        }
+
+    </style>
+  </head>
+  <body>
+    <!-- 4번 html -->
+    <h1>4번 문제</h1>
+    <button class="open_btn">창 열기</button>
+    <button class="close_btn">창 닫기</button>
+
+    <script>
+    // 4번 js코드
+    const open_btn = document.querySelector('.open_btn');
+    const close_btn = document.querySelector('.close_btn');
+    // flag : 창 열림/닫힘 유무 판단하는 변수
+    let flag = false; // false 일떄, 창이 아직 안열림 (close) 
+    let newWindow = null;
+    // 창열기
+    open_btn.addEventListener('click', () => {
+      flag = true; // 창이 열린 상태 (open)
+      newWindow = window.open("about:blank","_blank");
+      newWindow.document.write("<p>새로운 단락</p>");
+    })
+
+    // 창닫기
+    close_btn.addEventListener('click', () => {
+      if(flag) {
+        newWindow.close();
+        flag = false;
+      } else {
+        alert('열린창이 없습니다!');
+      }
+    })
+    </script>
+    
+  </body>
+</html>

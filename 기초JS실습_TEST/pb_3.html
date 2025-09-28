@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+        * {
+            margin : 0;
+            padding : 0;
+            box-sizing: border-box;
+        }
+
+    </style>
+  </head>
+  <body>
+    <!-- 3번 html -->
+    <h1>3번 문제</h1>
+    <button class="toggle_stop">토글링 멈춤</button>
+
+    <script>
+    // 3번 js코드
+    const body = document.querySelector('body');
+    body.style.backgroundColor = 'yellow';
+    let isYellow = true;
+
+    let repeat = setInterval(() => {
+        if(isYellow) {
+            body.style.backgroundColor = 'pink';
+        } else {
+            body.style.backgroundColor = 'yellow';
+        }
+        isYellow = !isYellow;
+    }, 1000);
+    const toggle_stop = document.querySelector('.toggle_stop');
+    toggle_stop.addEventListener('click', () => {
+        clearInterval(repeat);
+    })
+    </script>
+    
+  </body>
+</html>

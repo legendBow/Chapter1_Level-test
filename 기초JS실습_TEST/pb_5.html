@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+        * {
+            margin : 0;
+            padding : 0;
+            box-sizing: border-box;
+        }
+
+        .result {
+          margin-block: 15px 0;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- 5번 hmtl -->
+    <button class="window_width">창 너비 가져오기</button>
+    <button class="window_height">창 높이 가져오기</button>
+    <div class="result"></div>
+    <script>
+    // 5번 문제
+    const window_width = document.querySelector('.window_width');
+    const window_height = document.querySelector('.window_height');
+    window_width.addEventListener('click', () => {
+      document.querySelector('.result').textContent 
+      = `innerWidth : ${window.innerWidth}`;
+    })
+
+    window_height.addEventListener('click', () => {
+      document.querySelector('.result').textContent 
+      = `innerWidth : ${window.innerHeight}`;
+    })
+    </script>
+  </body>
+</html>
