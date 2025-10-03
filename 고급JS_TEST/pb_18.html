@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 18 (고급)
+다음 중 this 바인딩이 화살표 함수와 일반 함수에서 다르게 동작하는 상황은?
+
+a) 전역 스코프에서 호출
+b) 객체 메서드로 호출
+c) 생성자로 호출
+d) 모든 상황에서 다르다
+
+answer : b -->
+
+<!-- 
+a) 전역 스코프에서 호출
+function fn() { console.log(this); }
+const arrow = () => console.log(this);
+fn();     // 일반 함수, 전역에서 호출 -> 브라우저: window, Node: global
+arrow();  // 화살표 함수, 정의된 위치의 this -> 전역이 아니라 상위 스코프(this)에 따라 달라짐
+
+b) 객체 메서드로 호출
+const obj = {
+  fn: function() { console.log(this); },
+  arrow: () => console.log(this)
+};
+
+obj.fn();     // 일반 함수: this = obj
+obj.arrow();  // 화살표 함수: this = obj가 아님, 정의된 상위 스코프
+✅ 확실히 차이가 납니다.
+일반 함수는 호출한 객체가 this가 되지만, 화살표 함수는 정의 위치의 this를 따라갑니다.
+→ 객체 메서드로 호출할 때 가장 명확한 차이가 나타납니다.
+
+c) 생성자로 호출
+function Fn() { this.x = 10; }
+const Arrow = () => { this.y = 20; };
+new Fn();    // 가능
+new Arrow(); // ❌ TypeError: Arrow is not a constructor
+
+화살표 함수는 생성자로 사용할 수 없습니다.
+
+
+d) 모든 상황에서 다르다
+❌ 틀렸습니다.
+화살표 함수와 일반 함수의 this가 모든 상황에서 다르지는 않습니다. 예를 들어 전역에서 정의된 화살표 함수와 일반 함수는 브라우저에서는 거의 같은 this를 가집니다.
+-->
+
+</body>
+</html>

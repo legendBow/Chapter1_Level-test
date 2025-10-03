@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 12 (중급)
+async/await에 대한 설명으로 틀린 것은?
+
+a) async 함수는 항상 Promise를 반환한다
+b) await는 async 함수 내에서만 사용할 수 있다
+c) await는 Promise가 resolve될 때까지 기다린다
+d) async/await는 동기적으로 실행된다
+
+answer : d -->
+
+<!-- 
+a) async 함수는 항상 Promise를 반환한다 → 맞음
+async function은 자동으로 Promise를 반환.
+(일반 값 return → Promise.resolve(값) 으로 감싸짐)
+
+b) await는 async 함수 내에서만 사용할 수 있다 → 맞음
+(단, 최신 Node.js와 브라우저에서는 모듈 최상위 await도 가능)
+
+c) await는 Promise가 resolve될 때까지 기다린다 → 맞음
+(reject 시에는 예외가 throw 됨)
+
+d) async/await는 동기적으로 실행된다 → ❌ 틀림
+async/await는 문법상 "동기처럼 보이게" 하지만, 실제 동작은 비동기(Promise 기반)
+
+-->
+</body>
+</html>

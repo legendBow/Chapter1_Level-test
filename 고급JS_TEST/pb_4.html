@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 문제 4 (중급)
+let과 var의 차이점으로 틀린 것은?
+
+a) let은 블록 스코프를 가진다
+b) let은 호이스팅되지 않는다
+c) let은 재선언이 불가능하다
+d) let은 temporal dead zone을 가진다    
+
+answer : b -->
+
+<!-- a) let은 블록 스코프를 가진다 → 맞음
+let은 블록 스코프, var는 함수 스코프.
+
+b) let은 호이스팅되지 않는다 → 틀림
+let도 사실 호이스팅은 됩니다.
+다만 TDZ(Temporal Dead Zone) 때문에 선언 전에 접근할 수 없을 뿐이에요.
+(ReferenceError 발생)
+
+c) let은 재선언이 불가능하다 → 맞음
+같은 스코프 내에서 let 변수는 다시 선언 불가. (SyntaxError)
+
+d) let은 temporal dead zone을 가진다 → 맞음
+let과 const는 TDZ가 있어서, 선언문 전에 접근 불가능. -->
+</body>
+</html>

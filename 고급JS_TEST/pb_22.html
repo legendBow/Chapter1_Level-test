@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 문제 22 (고급)
+다음 코드의 출력은?
+
+const obj = {
+  name: "test",
+  getName: function () {
+    return this.name;
+  },
+};
+
+const getName = obj.getName;
+console.log(getName());
+a) 'test'
+b) undefined
+c) null
+d) 에러 발생
+
+answer : c -->
+
+<!-- 
+
+a) 'test' → ❌ 아니에요. 객체 참조가 끊어졌으므로 안 나옵니다.
+b) undefined → ✅ 맞습니다.
+c) null → ❌ this.name이 없을 땐 undefined, null은 아님.
+d) 에러 발생 → ❌ 단순 참조라 에러가 나진 않음.
+
+-->
+
+</body>
+</html>

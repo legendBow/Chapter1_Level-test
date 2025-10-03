@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 16 (고급)
+다음 코드의 출력은?
+
+console.log(1 + "1");
+console.log("1" + 1);
+console.log(1 - "1");
+console.log("1" - 1);
+a) 2, 2, 0, 0
+b) "11", "11", 0, 0
+c) 2, "11", 0, 0
+d) "11", "11", NaN, NaN
+
+answer : b -->
+
+
+<!-- 
+(1) 1 + "1"
++ 연산자는 문자열 연결이 우선됨.
+따라서 숫자 1이 문자열 "1"로 변환 → "11"
+
+(2) "1" + 1
+마찬가지로 문자열 연결 → "11"
+
+(3) 1 - "1"
+- 연산자는 문자열 연결이 아니라 수학적 뺄셈만 함.
+"1"은 숫자 1로 변환됨 → 1 - 1 = 0
+
+(4) "1" - 1
+위와 동일하게 "1"이 숫자 1로 변환됨 → 1 - 1 = 0
+
+-->
+
+</body>
+</html>

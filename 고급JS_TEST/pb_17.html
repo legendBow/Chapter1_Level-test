@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 17 (고급)
+프로토타입 체인에 대한 설명으로 올바른 것은?
+
+a) 객체는 자신의 프로퍼티만 접근할 수 있다
+b) 프로토타입 체인은 무한히 연결될 수 있다
+c) 모든 객체의 프로토타입 체인은 Object.prototype에서 끝난다
+d) 프로토타입 체인은 런타임에 변경할 수 없다
+
+answer : 모름 -->
+
+
+<!-- 
+a) 객체는 자신의 프로퍼티만 접근할 수 있다
+❌ 틀렸습니다.
+객체는 자신의 프로퍼티뿐 아니라 프로토타입 체인을 따라 상위 객체의 프로퍼티도 접근할 수 있습니다.
+예시
+
+
+b) 프로토타입 체인은 무한히 연결될 수 있다
+❌ 틀렸습니다.
+프로토타입 체인은 반드시 null에서 끝납니다. (Object.prototype.__proto__ === null)
+따라서 무한히 연결될 수는 없습니다.
+
+c) 모든 객체의 프로토타입 체인은 Object.prototype에서 끝난다
+✅ 맞습니다.
+일반적인 객체({})나 new Object()로 생성된 객체는 최종적으로 Object.prototype에서 끝납니다.
+
+d) 프로토타입 체인은 런타임에 변경할 수 없다
+❌ 틀렸습니다.
+프로토타입은 런타임에 Object.setPrototypeOf() 등을 사용해 바꿀 수 있습니다.
+
+-->
+</body>
+</html>

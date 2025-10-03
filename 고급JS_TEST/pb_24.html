@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 24 (고급)
+다음 중 모듈 시스템에 대한 설명으로 틀린 것은?
+
+a) ES6 모듈은 정적으로 분석된다
+b) CommonJS는 동적으로 모듈을 로드할 수 있다
+c) import문은 호이스팅된다
+d) export default는 여러 번 사용할 수 있다
+
+answer : d     -->
+
+<!-- 
+
+export default는 한 모듈에서 단 한 번만 가능합니다.
+
+// 올바른 예
+export default function() {}
+
+// ❌ 에러: Identifier 'default' has already been declared
+export default 1;
+export default 2;
+
+-->
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 11 (중급)
+다음 코드의 출력은?
+
+const obj = { a: 1 };
+const arr = [obj];
+const newArr = [...arr];
+newArr[0].a = 2;
+console.log(obj.a);
+a) 1
+b) 2
+c) undefined
+d) 에러 발생
+
+answer : b -->
+
+<!-- 
+const obj = { a: 1 };      // 객체 생성
+const arr = [obj];         // 배열 arr에 obj 참조 저장
+const newArr = [...arr];   // 스프레드(...)로 배열 복사 (얕은 복사)
+
+// newArr[0]은 obj와 같은 참조를 가짐
+newArr[0].a = 2;
+
+newArr = [...arr] 는 배열을 복사하지만, 내부 요소인 obj는 얕은 복사(참조 공유) 됨.
+따라서 newArr[0].a = 2를 하면 원본 obj.a 값도 같이 변경됨.
+
+-->
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 27 (고급)
+다음 코드에서 메모리 누수가 발생할 수 있는 이유는?
+
+function createHandler() {
+  const data = new Array(1000000).fill("data");
+
+  return function () {
+    console.log("handled");
+  };
+}
+
+const handler = createHandler();
+a) 배열이 너무 크다
+b) 클로저로 인해 data가 가비지 컬렉션되지 않는다
+c) 함수가 반환되지 않는다
+d) 메모리 누수가 발생하지 않는다
+
+answer : b -->
+
+
+<!-- 
+a) 배열이 너무 크다 ❌
+→ 크기 자체는 문제 아님. 가비지 컬렉션이 가능하다면 해제됨.
+
+b) 클로저로 인해 data가 가비지 컬렉션되지 않는다 ✅
+→ 맞는 설명. 클로저로 인해 스코프가 유지되어 data가 해제되지 않음.
+
+c) 함수가 반환되지 않는다 ❌
+→ 함수는 반환되고 있음 (return function () {...}).
+
+d) 메모리 누수가 발생하지 않는다 ❌
+→ 상황에 따라 최적화될 수 있지만, 일반적으로 메모리 누수 가능성이 있음.
+-->
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 23 (고급)
+JavaScript 엔진의 이벤트 루프에서 다음 중 가장 높은 우선순위를 가지는 것은?
+
+a) setTimeout 콜백
+b) Promise.then() 콜백
+c) requestAnimationFrame 콜백
+d) setImmediate 콜백
+
+answer : b -->
+
+<!-- 
+a) setTimeout 콜백
+→ 매크로태스크, 마이크로태스크보다 우선순위 낮음
+
+b) Promise.then() 콜백
+→ 마이크로태스크 → 우선순위 가장 높음
+
+c) requestAnimationFrame 콜백
+→ 브라우저 렌더링 직전 실행 → 마이크로태스크보다 늦음
+
+d) setImmediate 콜백
+→ Node.js에서만 사용, 매크로태스크 계열 → Promise.then보다 늦음
+
+
+-->
+</body>
+</html>

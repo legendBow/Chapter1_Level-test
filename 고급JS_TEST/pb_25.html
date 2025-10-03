@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 25 (고급)
+다음 코드의 출력은?
+
+const sym1 = Symbol("test");
+const sym2 = Symbol("test");
+console.log(sym1 === sym2);
+console.log(Symbol.for("test") === Symbol.for("test"));
+a) true, true
+b) false, false
+c) true, false
+d) false, true
+
+answer : d -->
+
+<!-- 
+
+Symbol("test")
+Symbol 함수로 생성하면, 매번 고유한 심볼이 만들어집니다.
+따라서 sym1 === sym2 → false
+
+Symbol.for("test")
+전역 심볼 레지스트리를 사용합니다.
+동일한 키 "test"로 요청하면 항상 같은 심볼을 반환합니다.
+따라서 Symbol.for("test") === Symbol.for("test") → true
+-->
+
+</body>
+</html>

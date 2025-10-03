@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 20 (고급)
+WeakMap과 Map의 차이점으로 틀린 것은?
+
+a) WeakMap의 키는 반드시 객체여야 한다
+b) WeakMap은 iterable하지 않다
+c) WeakMap은 가비지 컬렉션에 영향을 주지 않는다
+d) WeakMap은 크기를 확인할 수 없다
+
+answer : c
+-->
+
+<!-- 
+a) WeakMap의 키는 반드시 객체여야 한다
+✅ 맞습니다.
+WeakMap의 키는 객체 타입만 가능합니다. (원시값은 키 불가)
+
+b) WeakMap은 iterable하지 않다
+✅ 맞습니다.
+Map은 for...of, map.keys(), map.entries() 등으로 순회 가능하지만,
+WeakMap은 이터러블(iterable)이 아님 → 순회 불가능
+
+c) WeakMap은 가비지 컬렉션에 영향을 주지 않는다
+❌ 틀린 설명입니다.
+오히려 WeakMap의 특징은 가비지 컬렉션에 영향을 준다는 점이에요.
+→ 키로 사용된 객체가 참조에서 사라지면 자동으로 GC 대상이 되고, WeakMap에서도 제거됩니다.
+→ 그래서 메모리 누수를 방지하는 용도로 사용합니다.
+
+d) WeakMap은 크기를 확인할 수 없다
+✅ 맞습니다.
+WeakMap.size 같은 속성이 없습니다.
+→ 내부 요소 개수를 알 수 없음.
+
+-->
+
+</body>
+</html>

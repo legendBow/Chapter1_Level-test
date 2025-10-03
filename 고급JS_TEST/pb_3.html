@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!-- 문제 3 (중급)
+다음 코드의 출력 결과는?
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+a) 0, 1, 2
+b) 3, 3, 3
+c) 1, 2, 3
+d) undefined, undefined, undefined
+
+answer : b -->
+
+<!-- 
+var는 함수 스코프라서 for 루프가 돌때마다 i가 새로운 값으로 캡처되지 않음.
+즉, 하나의 i를 공유하므로 계속 3이 찍히게 되어 답은 a이다.
+let은 블록 스코프 이므로 for 루프가 돌때마다 새로운 i 변수가 생성되나,
+루프가 돌때마다 i값을 기억해서 0, 1, 2로 각각 출력이 된다
+-->
+</body>
+</html>

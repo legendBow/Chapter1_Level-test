@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 문제 5 (중급)
+다음 중 깊은 복사(deep copy)를 수행하는 방법은?
+
+a) Object.assign({}, obj)
+b) {...obj}
+c) JSON.parse(JSON.stringify(obj))
+d) obj.slice()
+
+answer : b -->
+
+<!-- a) Object.assign({}, obj)
+→ 얕은 복사(Shallow Copy)
+중첩 객체가 있으면 참조만 복사됨.
+
+b) {...obj} (스프레드 연산자)
+→ 이것도 얕은 복사(Shallow Copy)
+1단계 속성은 복사되지만, 객체 안의 객체는 여전히 원본 참조.
+
+c) JSON.parse(JSON.stringify(obj))
+→ 깊은 복사(Deep Copy)
+객체를 문자열로 직렬화 → 다시 객체로 변환.
+다만 Date, Map, Set, 함수 같은 건 복사 불가.
+
+d) obj.slice()
+→ 배열 얕은 복사. (객체라면 동작하지 않음) -->
+</body>
+</html>

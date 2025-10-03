@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 문제 21 (고급)
+다음 코드에서 MyClass의 인스턴스를 생성하는 올바른 방법은?
+
+class MyClass {
+  #privateField = "private";
+
+  getPrivate() {
+    return this.#privateField;
+  }
+}
+a) const instance = MyClass()
+b) const instance = new MyClass()
+c) const instance = MyClass.create()
+d) const instance = Object.create(MyClass)
+
+answer : b -->
+
+<!-- 
+class MyClass {
+  #privateField = "private";
+
+  getPrivate() {
+    return this.#privateField;
+  }
+}
+
+a) const instance = MyClass()
+❌ 틀렸습니다.
+class는 함수처럼 직접 호출할 수 없습니다.
+→ TypeError: Class constructor MyClass cannot be invoked without 'new'
+
+b) const instance = new MyClass()
+✅ 맞습니다.
+class는 반드시 new 키워드로 인스턴스를 생성해야 합니다.
+
+const instance = new MyClass();
+console.log(instance.getPrivate()); // "private"
+
+c) const instance = MyClass.create()
+❌ 틀렸습니다.
+MyClass에는 create라는 정적 메서드가 정의되어 있지 않기 때문에 TypeError 발생
+
+d) const instance = Object.create(MyClass)
+❌ 틀렸습니다.
+Object.create는 프로토타입 객체를 인자로 받는데, MyClass는 함수(클래스)이지 인스턴스의 프로토타입이 아님.
+→ 올바른 인스턴스를 만들 수 없음
+
+
+-->
+
+</body>
+</html>
