@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<button onclick="openWin()">창 열기</button>
+<button onclick="closeWin()">창 닫기</button>
+<script>  
+    let win;
+    function openWin() {
+            win = window.open("", "", "width=500, height=300, top=150, left=150");
+            win.document.title = "새로운 창";
+            p = document.createElement("P");
+            p_text = document.createTextNode("새로운 단락");
+            p.appendChild(p_text);
+            win.document.body.appendChild(p);
+    }
+    function closeWin() {
+        if (win!= undefined) {
+            win.close();
+                win = undefined;
+        }
+        else {
+            alert("열린 창이 없습니다!");
+        }
+    }
+</script>  
+</body>
+</html>

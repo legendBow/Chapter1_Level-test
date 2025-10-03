@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<button onclick="getWidth()">창 너비 가져오기</button>
+<button onclick="getHeight()">창 높이 가져오기</button>
+<p id="show"></p>
+<script>  
+    let text;
+    function getWidth() {
+        text = "innerWidth : " + window.innerWidth;
+        document.getElementById("show").innerHTML = text;
+    }
+    function getHeight() {
+        text = "innerHeight : " + window.innerHeight;
+        document.getElementById("show").innerHTML = text;
+    }    
+</script>  
+</body>
+</html>
