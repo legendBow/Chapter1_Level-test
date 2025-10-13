@@ -82,11 +82,14 @@ CodePen 예제 실습: [CSS Transitions 실습 예제](https://codepen.io/JangAy
 ### 4.1 CSS Animation
 
 [CSS Animation 실습 과제](https://codepen.io/JangAyeon/pen/PwZbKpa)
+[과제 풀이](https://codepen.io/iombaivj-the-flexboxer/pen/dPGvvbP)
 
 ### 4.2 CSS Transform
 
 [CSS Transform 실습 과제](https://codepen.io/JangAyeon/pen/myVOwGW)
+[과제 풀이](https://codepen.io/iombaivj-the-flexboxer/pen/ZYQKVom)
 
 ### 4.3 CSS Transitions
 
 [CSS Transitions 실습 과제](https://codepen.io/JangAyeon/pen/QwyGMWJ)
+[과제 풀이](https://codepen.io/iombaivj-the-flexboxer/pen/ByjZbWE)
