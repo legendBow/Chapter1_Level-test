@@ -1,0 +1,97 @@
+/**
+ * Block Display 요소 스타일
+ * 
+ * Block 요소의 특징:
+ * - 항상 새로운 줄에서 시작
+ * - 전체 가로 너비를 차지 (기본)
+ * - width/height 속성 적용 가능
+ * - margin/padding 모두 적용 (상하좌우)
+ * 
+ * 실무 사용: div, p, h1-h6, header, footer 등
+ */
+
+/* ========== Block 요소 컨테이너 ========== */
+.block-demo {
+  /* 아래 여백: 다음 요소와의 간격 */
+  margin-bottom: 20px;
+}
+
+/* ========== 기본 Block Box (너비 제한 없음) ========== */
+.block-box {
+  /* 그래디언트 배경: 파란색 계열 */
+  background: linear-gradient(135deg, #3498db, #2980b9);
+
+  /* 텍스트 색상: 흰색 */
+  color: white;
+
+  /* 내부 여백: 상하좌우 20px */
+  padding: 20px;
+
+  /* 마진: 위아래 10px, 좌우 0 */
+  margin: 10px 0;
+
+  /* 테두리 반경: 8px */
+  border-radius: 8px;
+
+  /* 왼쪽 테두리: 강조를 위한 굵은 테두리 */
+  border-left: 5px solid #2c3e50;
+
+  /* 그림자: 입체감 추가 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== 고정 너비 Block Box ========== */
+.block-box-fixed {
+  /* 너비 지정: 300px로 고정 */
+  width: 300px;
+
+  /* 배경: 빨간색 계열 */
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+
+  /* 나머지 스타일은 .block-box와 동일 */
+  color: white;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border-left: 5px solid #922b21;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== 중앙 정렬된 Block Box ========== */
+.block-box-centered {
+  /* 너비 지정: 400px */
+  width: 400px;
+
+  /* 배경: 초록색 계열 */
+  background: linear-gradient(135deg, #27ae60, #1e8449);
+
+  /* 색상 및 기본 스타일 */
+  color: white;
+  padding: 20px;
+
+  /* 중요: 마진을 auto로 설정하여 좌우 중앙 정렬 */
+  margin: 20px auto;
+
+  border-radius: 8px;
+  border-left: 5px solid #145a32;
+
+  /* 텍스트 정렬: 내부 텍스트도 중앙 정렬 */
+  text-align: center;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/*
+   * Block 요소의 중앙 정렬 방법:
+   * 
+   * 방법 1: margin: 0 auto; (가장 일반적)
+   *  - 너비가 지정된 block 요소에만 적용 가능
+   *  - 부모가 block이어야 함
+   * 
+   * 방법 2: text-align: center; (텍스트/인라인 요소)
+   *  - block 내부의 텍스트나 inline 요소 정렬
+   * 
+   * 방법 3: flexbox/grid (모던 방식)
+   *  - 부모: display: flex; justify-content: center;
+   *  - 더 강력하고 유연함
+   */

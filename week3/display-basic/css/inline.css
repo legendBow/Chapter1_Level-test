@@ -1,0 +1,81 @@
+/**
+ * Inline Display 요소 스타일
+ * 
+ * Inline 요소의 특징:
+ * - 텍스트처럼 같은 줄에 배치
+ * - 필요한 만큼만 너비를 차지
+ * - width/height 속성 무시됨
+ * - margin: 좌우만 적용 (상하 무시)
+ * - padding: 좌우만 시각적 효과 (상하는 겹침 가능)
+ * 
+ * 실무 사용: span, a, strong, em, label 등
+ */
+
+/* ========== Inline 요소 데모 컨테이너 ========== */
+.inline-demo {
+  /* 배경: 밝은 회색 (컨테이너 구분) */
+  background: #f8f9fa;
+
+  /* 패딩: 내부 여백 */
+  padding: 15px;
+
+  /* 테두리 반경: 8px */
+  border-radius: 8px;
+
+  /* 마진: 아래 여백 */
+  margin-bottom: 20px;
+}
+
+/* ========== Inline Box (텍스트 강조용) ========== */
+.inline-box {
+  /* 배경: 녹색 계열 그래디언트 */
+  background: linear-gradient(135deg, #16a085, #138d75);
+
+  /* 텍스트 색상: 흰색 */
+  color: white;
+
+  /* 패딩: 상하 8px, 좌우 15px (inline이므로 상하는 제한적) */
+  padding: 8px 15px;
+
+  /* 마진: 좌우만 효과적 (5px) */
+  margin: 0 5px;
+
+  /* 테두리 반경: 모서리 둥글게 */
+  border-radius: 4px;
+
+  /* 중요: display: inline 명시 */
+  display: inline;
+
+  /* 테두리: 2px 검은색 테두리 */
+  border: 2px solid #0e6251;
+}
+
+/* ========== Inline 텍스트 래퍼 ========== */
+.inline-text {
+  /* 텍스트 색상: 어두운 회색 */
+  color: #34495e;
+
+  /* 줄 높이: 1.8배로 여유있는 배치 */
+  line-height: 1.8;
+
+  /* 폰트 크기: 16px */
+  font-size: 16px;
+}
+
+/*
+   * Inline 요소의 주의점:
+   * 
+   * 1. 너비/높이 무시:
+   *    .inline-box { width: 200px; } → 적용 안됨
+   * 
+   * 2. 상하 마진/패딩 제한:
+   *    margin-top, margin-bottom 무시됨
+   *    padding-top, padding-bottom은 겹칠 수 있음
+   * 
+   * 3. 해결 방법:
+   *    .inline-box {
+   *      display: inline-block; // ← inline-block으로 변경
+   *      width: 200px;          // ← 이제 작동
+   *      height: 50px;          // ← 이제 작동
+   *    }
+   */

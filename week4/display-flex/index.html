@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Flexbox 실습 예제</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- 예제 1: 기본 정렬 -->
+    <div class="section">
+      <h2>📌 예제 1: 기본 정렬 (가로/세로 중앙)</h2>
+      <p>justify-content와 align-items를 사용한 완벽한 중앙 정렬</p>
+      <div class="code-block">
+        display: flex;<br />
+        justify-content: center; /* 가로 중앙 */<br />
+        align-items: center; /* 세로 중앙 */
+      </div>
+      <div class="example1-container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+    </div>
+
+    <!-- 예제 2: 공간 분배 -->
+    <div class="section">
+      <h2>📌 예제 2: 공간 분배 (space-between)</h2>
+      <p>justify-content: space-between으로 양 끝에 붙이고 중간에 공간 분배</p>
+      <div class="code-block">
+        display: flex;<br />
+        justify-content: space-between; /* 양 끝 붙이고 균등 분배 */
+      </div>
+      <div class="example2-container">
+        <div class="box2">1</div>
+        <div class="box2">2</div>
+        <div class="box2">3</div>
+      </div>
+    </div>
+
+    <!-- 예제 3: 줄 바꿈 -->
+    <div class="section">
+      <h2>📌 예제 3: 줄 바꿈 (flex-wrap)</h2>
+      <p>화면이 작아지면 자동으로 다음 줄로 넘어갑니다</p>
+      <div class="code-block">
+        display: flex;<br />
+        flex-wrap: wrap; /* 줄 바꿈 활성화 */<br />
+        gap: 20px;
+      </div>
+      <div class="example3-container">
+        <div class="box3">1</div>
+        <div class="box3">2</div>
+        <div class="box3">3</div>
+        <div class="box3">4</div>
+      </div>
+    </div>
+
+    <!-- 예제 4: 카드 그리드 -->
+    <div class="section">
+      <h2>📌 예제 4: 반응형 카드 그리드</h2>
+      <p>flex: 1 1 calc(33.333% - 14px)로 반응형 3단 레이아웃 구현</p>
+      <div class="code-block">
+        .card {<br />
+        &nbsp;&nbsp;flex: 1 1 calc(33.333% - 14px);<br />
+        &nbsp;&nbsp;min-width: 250px;<br />
+        }
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-header">📱</div>
+          <div class="card-body">
+            <div class="card-title">카드 1</div>
+            <div class="card-text">
+              반응형 디자인으로 화면 크기에 따라 자동으로 레이아웃이 조정됩니다.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">🎨</div>
+          <div class="card-body">
+            <div class="card-title">카드 2</div>
+            <div class="card-text">
+              모든 카드의 높이가 자동으로 맞춰집니다. align-items: stretch
+              효과입니다.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">⚙️</div>
+          <div class="card-body">
+            <div class="card-title">카드 3</div>
+            <div class="card-text">
+              화면이 작아지면 2단, 3단, 1단으로 자동 조정됩니다. 시도해보세요!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 예제 5: 네비게이션 바 -->
+    <div class="section">
+      <h2>📌 예제 5: 네비게이션 바</h2>
+      <p>justify-content: space-between으로 로고와 메뉴를 양쪽 끝에 배치</p>
+      <div class="code-block">
+        .navbar {<br />
+        &nbsp;&nbsp;display: flex;<br />
+        &nbsp;&nbsp;justify-content: space-between;<br />
+        &nbsp;&nbsp;align-items: center;<br />
+        }
+      </div>
+      <nav class="navbar">
+        <div class="logo">🎯 Logo</div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- 예제 6: 풀페이지 레이아웃 -->
+    <div class="section">
+      <h2>📌 예제 6: 풀페이지 레이아웃</h2>
+      <p>flex-direction: column으로 상단/중단/하단 레이아웃 구현</p>
+      <div class="code-block">
+        body {<br />
+        &nbsp;&nbsp;display: flex;<br />
+        &nbsp;&nbsp;flex-direction: column;<br />
+        &nbsp;&nbsp;height: 100vh;<br />
+        }<br />
+        main { flex: 1; } /* 남은 공간 모두 차지 */
+      </div>
+      <div class="layout">
+        <div class="header">Header</div>
+        <div class="main-content">
+          <div class="sidebar">
+            <div class="sidebar-item">📄 메뉴 1</div>
+            <div class="sidebar-item">📄 메뉴 2</div>
+            <div class="sidebar-item">📄 메뉴 3</div>
+            <div class="sidebar-item">📄 메뉴 4</div>
+          </div>
+          <div class="content">
+            <strong>Content Area</strong><br /><br />
+            여기에 주요 콘텐츠가 들어갑니다. flex: 1로 남은 공간을 모두
+            차지합니다.
+          </div>
+        </div>
+        <div class="footer">Footer</div>
+      </div>
+    </div>
+
+    <!-- 예제 7: 플렉스 아이템 크기 제어 -->
+    <div class="section">
+      <h2>📌 예제 7: flex로 비율 제어</h2>
+      <p>flex: 1, flex: 2, flex: 3으로 공간을 1:2:3 비율로 분배</p>
+      <div class="code-block">
+        .item1 { flex: 1; } /* 전체의 1/6 */<br />
+        .item2 { flex: 2; } /* 전체의 2/6 */<br />
+        .item3 { flex: 3; } /* 전체의 3/6 */
+      </div>
+      <div class="flex-size-container">
+        <div class="flex-item flex-1">flex:1</div>
+        <div class="flex-item flex-2">flex:2</div>
+        <div class="flex-item flex-3">flex:3</div>
+      </div>
+    </div>
+
+    <!-- 예제 8: 버튼 그룹 -->
+    <div class="section">
+      <h2>📌 예제 8: 버튼 그룹 배치</h2>
+      <p>
+        justify-content: space-between으로 취소와 저장 버튼을 양쪽 끝에 배치
+      </p>
+      <div class="code-block">
+        .button-group {<br />
+        &nbsp;&nbsp;display: flex;<br />
+        &nbsp;&nbsp;justify-content: space-between;<br />
+        &nbsp;&nbsp;gap: 10px;<br />
+        }
+      </div>
+      <div class="button-group">
+        <button class="btn btn-secondary">← 취소</button>
+        <button class="btn btn-primary">저장 →</button>
+      </div>
+    </div>
+  </body>
+</html>

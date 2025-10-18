@@ -1,0 +1,139 @@
+/* ========================================
+   반응형 디자인
+   ======================================== */
+
+/* 태블릿 (768px 이하) */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .exercise {
+    padding: 20px;
+  }
+
+  .exercise-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exercise-number {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .exercise-title h2 {
+    font-size: 22px;
+  }
+
+  /* Sticky 컨테이너 1열로 */
+  .sticky-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* 레이어 크기 조정 */
+  .layer {
+    width: 150px;
+    height: 150px;
+    font-size: 16px;
+  }
+
+  .layer1 {
+    top: 30px;
+    left: 30px;
+  }
+
+  .layer2 {
+    top: 70px;
+    left: 70px;
+  }
+
+  .layer3 {
+    top: 110px;
+    left: 110px;
+  }
+
+  /* 카드 전체 너비 */
+  .card {
+    width: 100%;
+  }
+
+  /* 모달 패딩 조정 */
+  .modal-content {
+    padding: 30px 20px;
+  }
+
+  .modal-sticky-object {
+    margin: -30px -20px 20px -20px;
+  }
+}
+
+/* 모바일 (480px 이하) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .exercise {
+    padding: 15px;
+  }
+
+  .practice-area {
+    padding: 20px;
+  }
+
+  .toggle-btn {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .box-static,
+  .box-relative {
+    width: 120px;
+    height: 120px;
+    font-size: 14px;
+  }
+
+  .child-box {
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+  }
+
+  .fixed-button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+/* 대형 화면 (1440px 이상) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  h1 {
+    font-size: 56px;
+  }
+
+  .exercise {
+    padding: 50px;
+  }
+}

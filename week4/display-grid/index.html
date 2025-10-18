@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid 완벽 가이드 - 실습 예제</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* 헤더 */
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 50px;
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* 메인 그리드 */
+      .main-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      /* 예제 카드 */
+      .example-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: grid;
+        grid-template-rows: 200px auto auto;
+      }
+
+      .example-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .card-image {
+        background: linear-gradient(
+          45deg,
+          #ff6b6b,
+          #4ecdc4,
+          #45b7d1,
+          #96ceb4,
+          #feca57,
+          #ff9ff3
+        );
+        background-size: 400% 400%;
+        animation: gradientShift 3s ease infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .card-content {
+        padding: 25px;
+      }
+
+      .card-content h3 {
+        color: #333;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      .card-content p {
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .card-footer {
+        padding: 0 25px 25px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        text-align: center;
+        width: 100%;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+      }
+
+      /* 특징 섹션 */
+      .features {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 50px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .features h2 {
+        text-align: center;
+        color: #333;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .feature-item {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+
+      .feature-item h3 {
+        color: #333;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+
+      .feature-item p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* 학습 순서 */
+      .learning-path {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 50px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .learning-path h2 {
+        text-align: center;
+        color: #333;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+      }
+
+      .path-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .path-step {
+        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        border-left: 5px solid #667eea;
+        transition: transform 0.3s ease;
+      }
+
+      .path-step:hover {
+        transform: translateY(-5px);
+      }
+
+      .step-number {
+        background: #667eea;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin: 0 auto 15px;
+      }
+
+      .path-step h4 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .path-step p {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* 푸터 */
+      .footer {
+        text-align: center;
+        color: white;
+        padding: 30px;
+        opacity: 0.8;
+      }
+
+      .footer p {
+        margin-bottom: 10px;
+      }
+
+      .footer a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* 반응형 조정 */
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .main-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .path-grid {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 헤더 -->
+      <header class="header">
+        <h1>🎯 CSS Grid 완벽 가이드</h1>
+        <p>
+          2차원 격자 레이아웃의 모든 것을 배우고 실습해보세요. 기본부터 고급
+          기법까지 단계별로 학습할 수 있습니다.
+        </p>
+      </header>
+
+      <!-- 메인 예제 그리드 -->
+      <main class="main-grid">
+        <div class="example-card">
+          <div class="card-image">🎯</div>
+          <div class="card-content">
+            <h3>1. 기본 Grid 구조</h3>
+            <p>
+              CSS Grid의 기본 개념과 구조를 이해하고, 다양한 크기 조합과 fr 단위
+              사용법을 학습합니다.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="01-basic-grid.html" class="btn">기본 예제 보기</a>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="card-image">📰</div>
+          <div class="card-content">
+            <h3>2. 신문 레이아웃</h3>
+            <p>
+              Grid Template Areas를 사용하여 신문과 같은 복잡한 레이아웃을
+              만들어보고, 반응형 디자인을 구현합니다.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="02-newspaper-layout.html" class="btn"
+              >신문 레이아웃 보기</a
+            >
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="card-image">🖼️</div>
+          <div class="card-content">
+            <h3>3. 반응형 이미지 갤러리</h3>
+            <p>
+              auto-fit, auto-fill을 활용한 반응형 갤러리와 Masonry 스타일
+              레이아웃을 구현해봅니다.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="03-image-gallery.html" class="btn">갤러리 보기</a>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="card-image">🛍️</div>
+          <div class="card-content">
+            <h3>4. 제품 카드 레이아웃</h3>
+            <p>
+              다양한 스타일의 제품 카드 그리드를 만들고, 비대칭 레이아웃과 내부
+              그리드 구조를 학습합니다.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="04-product-cards.html" class="btn">제품 카드 보기</a>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="card-image">🏗️</div>
+          <div class="card-content">
+            <h3>5. Template Areas</h3>
+            <p>
+              ASCII 아트 형식의 Template Areas를 사용하여 직관적인 레이아웃을
+              만들고, 복잡한 구조를 설계합니다.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="05-template-areas.html" class="btn">Template Areas 보기</a>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="card-image">🚀</div>
+          <div class="card-content">
+            <h3>6. 고급 기법</h3>
+            <p>
+              minmax(), clamp(), fit-content() 함수와 정렬, 중첩 그리드 등 고급
+              기능들을 마스터합니다.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="06-advanced-techniques.html" class="btn">고급 기법 보기</a>
+          </div>
+        </div>
+      </main>
+
+      <!-- 푸터 -->
+      <footer class="footer">
+        <p><strong>CSS Grid 완벽 가이드</strong></p>
+        <p>2차원 격자 레이아웃의 모든 것을 배우고 실습해보세요</p>
+        <p>작성자: CSS Grid 강의 자료 | 마지막 수정: 2025년</p>
+      </footer>
+    </div>
+  </body>
+</html>

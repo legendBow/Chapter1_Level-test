@@ -1,0 +1,110 @@
+/**
+ * Global Styles & Reset
+ * 전체 페이지에 적용되는 기본 스타일 및 리셋
+ * 
+ * 기본 원칙:
+ * - box-sizing: border-box - 패딩과 보더를 너비에 포함
+ * - margin/padding 리셋 - 브라우저 기본값 제거
+ * - 타이포그래피 통일 - 일관된 폰트 적용
+ */
+
+* {
+  /* border-box 모델 사용: width = content + padding + border */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== 바디 스타일 ========== */
+body {
+  /* 타이포그래피: 현대적이고 읽기 쉬운 폰트 스택 */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  /* 그래디언트 배경: 이미지 방식으로 2가지 색상 혼합 */
+  background: linear-gradient(
+    135deg,
+    /* 45도 각도로 그래디언트 방향 설정 */ #667eea 0%,
+    /* 시작색 (보라 계열) */ #764ba2 100% /* 종료색 (어두운 보라) */
+  );
+
+  /* 최소 높이: 화면 전체 높이 이상 (작은 컨텐츠도 배경이 꽉 참) */
+  min-height: 100vh;
+
+  /* 패딩: 컨텐츠 좌우에 여백 */
+  padding: 20px;
+}
+
+/* ========== 컨테이너 ========== */
+.main-container {
+  /* 최대 너비: 1200px로 제한하여 큰 화면에서 가독성 유지 */
+  max-width: 1200px;
+
+  /* 자동 마진: 좌우 마진을 auto로 설정하여 중앙 정렬 */
+  margin: 0 auto;
+}
+
+/* ========== 제목 스타일 ========== */
+h1 {
+  /* 텍스트 색상: 흰색 (배경과 명확한 대비) */
+  color: white;
+
+  /* 정렬: 중앙 정렬 */
+  text-align: center;
+
+  /* 마진: 아래에 30px 여백 */
+  margin-bottom: 30px;
+
+  /* 폰트 크기: 2.5배 */
+  font-size: 2.5em;
+
+  /* 텍스트 그림자: 입체감 추가 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 섹션 공통 스타일 ========== */
+.section {
+  /* 배경색: 흰색 (컨텐츠 가시성 향상) */
+  background: white;
+
+  /* 테두리 반경: 모서리를 둥글게 (모던한 디자인) */
+  border-radius: 12px;
+
+  /* 패딩: 내부 여백 30px */
+  padding: 30px;
+
+  /* 마진: 섹션 간 여백 */
+  margin-bottom: 30px;
+
+  /* 박스 그림자: 깊이감 추가 (layer 효과) */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 섹션 제목 (h2) ========== */
+.section h2 {
+  /* 색상: 프라이머리 색상 */
+  color: #667eea;
+
+  /* 아래 테두리: 섹션 구분 */
+  border-bottom: 3px solid #667eea;
+
+  /* 패딩: 텍스트 아래 여백 */
+  padding-bottom: 15px;
+
+  /* 마진: 아래 여백 */
+  margin-bottom: 20px;
+
+  /* 폰트 크기: 1.8배 */
+  font-size: 1.8em;
+}
+
+/* ========== 단락 텍스트 ========== */
+.section p {
+  /* 색상: 어두운 회색 (읽기 편함) */
+  color: #555;
+
+  /* 줄 높이: 1.6배로 설정하여 가독성 향상 */
+  line-height: 1.6;
+
+  /* 마진: 단락 간 여백 */
+  margin-bottom: 15px;
+}

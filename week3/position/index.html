@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Position 단계별 실습</title>
+
+    <!-- CSS 파일들 -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/component.css" />
+    <link rel="stylesheet" href="./css/exercise.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📚 CSS Position 단계별 실습</h1>
+      <p class="subtitle">각 실습을 따라하며 Position 속성을 마스터하세요!</p>
+
+      <!-- 실습 1: Static -->
+      <div class="exercise">
+        <div class="exercise-header">
+          <div class="exercise-number">1</div>
+          <div class="exercise-title">
+            <h2>Static - 기본 흐름 이해하기</h2>
+            <span class="exercise-difficulty difficulty-easy">초급</span>
+          </div>
+        </div>
+
+        <div class="exercise-description">
+          <h3>📝 목표</h3>
+          <ul>
+            <li>Position의 기본값인 static 이해하기</li>
+            <li>일반적인 문서 흐름(normal flow) 확인하기</li>
+          </ul>
+        </div>
+
+        <div class="practice-area">
+          <span class="practice-label">실습 영역</span>
+          <div class="box-static">Box 1</div>
+          <div class="box-static">Box 2</div>
+          <div class="box-static">Box 3</div>
+        </div>
+
+        <div class="hint-box">
+          <h4>💡 설명</h4>
+          <p><code>position: static</code>은 모든 요소의 기본값입니다.</p>
+        </div>
+      </div>
+
+      <!-- 실습 2: Relative -->
+      <div class="exercise">
+        <div class="exercise-header">
+          <div class="exercise-number">2</div>
+          <div class="exercise-title">
+            <h2>Relative - 자기 자신 기준으로 이동</h2>
+            <span class="exercise-difficulty difficulty-easy">초급</span>
+          </div>
+        </div>
+
+        <div class="exercise-description">
+          <h3>📝 목표</h3>
+          <ul>
+            <li>자신의 원래 위치를 기준으로 요소 이동하기</li>
+            <li>원래 자리는 그대로 유지됨을 확인하기</li>
+          </ul>
+        </div>
+
+        <div class="practice-area">
+          <span class="practice-label">실습 영역</span>
+          <div class="box-relative">Box 1</div>
+          <div class="box-relative" id="relativeBox">Box 2 (이동)</div>
+          <div class="box-relative">Box 3</div>
+          <button class="toggle-btn" onclick="toggleRelative()">
+            Relative 적용/해제
+          </button>
+        </div>
+
+        <div class="code-preview">
+          <span class="keyword">.box</span> {
+          <span class="property">position</span>:
+          <span class="value">relative</span>;
+          <span class="property">top</span>: <span class="value">30px</span>;
+          <span class="property">left</span>: <span class="value">50px</span>; }
+        </div>
+      </div>
+
+      <!-- 실습 3: Absolute -->
+      <div class="exercise">
+        <div class="exercise-header">
+          <div class="exercise-number">3</div>
+          <div class="exercise-title">
+            <h2>Absolute - 부모 기준 절대 위치</h2>
+            <span class="exercise-difficulty difficulty-medium">중급</span>
+          </div>
+        </div>
+
+        <div class="exercise-description">
+          <h3>📝 목표</h3>
+          <ul>
+            <li>부모 요소를 기준으로 정확한 위치에 배치하기</li>
+            <li>문서 흐름에서 제거됨을 이해하기</li>
+          </ul>
+        </div>
+
+        <div class="practice-area">
+          <span class="practice-label">실습 영역</span>
+          <div class="parent-box">
+            <div class="child-box positioned top-left" id="childBox1">
+              좌상단
+            </div>
+            <div class="child-box positioned top-right" id="childBox2">
+              우상단
+            </div>
+            <div class="child-box positioned bottom-left" id="childBox3">
+              좌하단
+            </div>
+            <div class="child-box positioned bottom-right" id="childBox4">
+              우하단
+            </div>
+            <div class="child-box positioned center" id="childBox5">중앙</div>
+          </div>
+          <button class="toggle-btn" onclick="toggleAbsolute()">
+            Absolute 적용/해제
+          </button>
+        </div>
+      </div>
+
+      <!-- 실습 4: Fixed -->
+      <div class="exercise">
+        <div class="exercise-header">
+          <div class="exercise-number">4</div>
+          <div class="exercise-title">
+            <h2>Fixed - 화면에 고정하기</h2>
+            <span class="exercise-difficulty difficulty-medium">중급</span>
+          </div>
+        </div>
+
+        <div class="exercise-description">
+          <h3>📝 목표</h3>
+          <ul>
+            <li>뷰포트를 기준으로 요소 고정하기</li>
+            <li>스크롤해도 위치가 변하지 않음 확인하기</li>
+          </ul>
+        </div>
+
+        <div class="practice-area">
+          <span class="practice-label">실습 영역</span>
+          <button class="toggle-btn" onclick="toggleFixed()">
+            Fixed 요소 표시/숨김
+          </button>
+          <p style="margin-top: 20px; color: #666">
+            Fixed 요소를 활성화하고 페이지를 스크롤해보세요!
+          </p>
+        </div>
+      </div>
+
+      <!-- 실습 5: Sticky -->
+      <div class="exercise">
+        <div class="exercise-header">
+          <div class="exercise-number">5</div>
+          <div class="exercise-title">
+            <h2>Sticky - 스크롤 시 고정</h2>
+            <span class="exercise-difficulty difficulty-hard">고급</span>
+          </div>
+        </div>
+
+        <div class="practice-area" style="min-height: 800px">
+          <span class="practice-label">실습 영역</span>
+          <button class="toggle-btn" onclick="toggleSticky()">
+            Sticky 적용/해제
+          </button>
+
+          <div class="sticky-container" style="margin-top: 20px">
+            <aside class="sticky-sidebar" id="stickySidebar">
+              <h3>📑 목차</h3>
+              <ul>
+                <li>섹션 1</li>
+                <li>섹션 2</li>
+                <li>섹션 3</li>
+                <li>섹션 4</li>
+                <li>섹션 5</li>
+              </ul>
+            </aside>
+            <div class="content-area">
+              <div class="content-section">
+                <h3>섹션 1</h3>
+                <p>이 사이드바는 스크롤 시 상단에 고정됩니다.</p>
+              </div>
+              <div class="content-section">
+                <h3>섹션 2</h3>
+                <p>계속 스크롤해보세요!</p>
+              </div>
+              <div class="content-section">
+                <h3>섹션 3</h3>
+                <p>사이드바가 따라오는 것을 확인할 수 있습니다.</p>
+              </div>
+              <div class="content-section">
+                <h3>섹션 4</h3>
+                <p>부모 요소를 벗어나면 더 이상 고정되지 않습니다.</p>
+              </div>
+              <div class="content-section">
+                <h3>섹션 5</h3>
+                <p>Sticky의 특징을 잘 이해하셨나요?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 실습 6: Card Badge -->
+      <div class="exercise">
+        <div class="exercise-header">
+          <div class="exercise-number">6</div>
+          <div class="exercise-title">
+            <h2>실전 예제 - 카드 배지</h2>
+            <span class="exercise-difficulty difficulty-medium">중급</span>
+          </div>
+        </div>
+
+        <div class="practice-area">
+          <span class="practice-label">실습 영역</span>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap">
+            <div class="card" id="badgeCard">
+              <div class="card-image"></div>
+              <div class="card-badge" id="cardBadge">SALE</div>
+              <div class="card-content">
+                <h3>상품 카드</h3>
+                <p>배지를 카드 위에 정확히 배치해보세요!</p>
+              </div>
+            </div>
+          </div>
+          <button class="toggle-btn" onclick="toggleBadge()">
+            배지 위치 변경
+          </button>
+        </div>
+      </div>
+
+      <!-- 실습 7: z-index -->
+      <div class="exercise">
+        <div class="exercise-header">
+          <div class="exercise-number">7</div>
+          <div class="exercise-title">
+            <h2>z-index - 요소 쌓기 순서</h2>
+            <span class="exercise-difficulty difficulty-hard">고급</span>
+          </div>
+        </div>
+
+        <div class="practice-area">
+          <span class="practice-label">실습 영역</span>
+          <div class="layers-container">
+            <div class="layer layer1" id="layer1">Layer 1</div>
+            <div class="layer layer2" id="layer2">Layer 2</div>
+            <div class="layer layer3" id="layer3">Layer 3</div>
+          </div>
+          <button class="toggle-btn" onclick="toggleZIndex()">
+            z-index 적용/해제
+          </button>
+          <div id="zIndexSuccess" class="success-message">
+            <strong>✓ z-index 적용 완료!</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- 실습 8: Modal -->
+      <div class="exercise">
+        <div class="exercise-header">
+          <div class="exercise-number">8</div>
+          <div class="exercise-title">
+            <h2>종합 실습 - 모달</h2>
+            <span class="exercise-difficulty difficulty-hard">고급</span>
+          </div>
+        </div>
+
+        <div class="practice-area">
+          <span class="practice-label">실습 영역</span>
+          <button class="toggle-btn" onclick="openModal()">
+            모달 열기 (중앙)
+          </button>
+          <button class="toggle-btn" onclick="openModalSlide()">
+            모달 열기 (우측 슬라이드)
+          </button>
+          <p style="margin-top: 20px; color: #666">
+            <strong>💡 ESC 키를 눌러 모달을 닫을 수 있습니다!</strong>
+          </p>
+        </div>
+
+        <div class="challenge-box">
+          <h4>🎯 최종 도전 과제</h4>
+          <ul>
+            <li>✅ 모달을 화면 우측에서 슬라이드</li>
+            <li>✅ 모달 내부 Sticky 요소</li>
+            <li>✅ ESC 키로 모달 닫기</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fixed 요소들 -->
+    <div class="fixed-header" id="fixedHeader">
+      <strong>🎯 Fixed Header</strong> - 스크롤해도 항상 상단에 고정됩니다
+    </div>
+
+    <button class="fixed-button" id="fixedButton" onclick="scrollToTop()">
+      ↑
+    </button>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+
+        <div class="modal-sticky-object">
+          <h3>📌 Sticky 요소 - 스크롤해도 고정됩니다</h3>
+        </div>
+
+        <h2 style="color: #333; margin-bottom: 20px">모달 창</h2>
+        <p style="color: #666; line-height: 1.8; margin-bottom: 20px">
+          이 모달은 Fixed, Absolute, Sticky, z-index를 모두 활용했습니다.
+        </p>
+
+        <div
+          style="
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+          "
+        >
+          <h3 style="color: #667eea; margin-bottom: 15px">
+            🎯 구현된 도전 과제
+          </h3>
+          <div style="line-height: 2; color: #555">
+            <p><strong>✅ 우측 슬라이드 모달</strong></p>
+            <p><strong>✅ 내부 Sticky 요소</strong></p>
+            <p><strong>✅ ESC 키로 닫기</strong></p>
+          </div>
+        </div>
+
+        <div style="color: #666; line-height: 1.8">
+          <h3 style="color: #333; margin: 20px 0 10px 0">Sticky 헤더 테스트</h3>
+          <p>아래로 스크롤하여 상단 헤더가 고정되는 것을 확인하세요.</p>
+          <p style="margin-top: 10px">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <p style="margin-top: 10px">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur.
+          </p>
+          <p style="margin-top: 10px">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium.
+          </p>
+          <p style="margin-top: 10px">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui
+            blanditiis praesentium voluptatum deleniti.
+          </p>
+        </div>
+
+        <button
+          class="toggle-btn"
+          onclick="closeModal()"
+          style="margin-top: 20px"
+        >
+          닫기
+        </button>
+      </div>
+    </div>
+
+    <!-- JavaScript 파일들 -->
+    <script src="./js/exercise.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

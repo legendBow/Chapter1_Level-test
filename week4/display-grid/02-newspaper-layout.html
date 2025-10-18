@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>신문 레이아웃 - CSS Grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: #f5f5f5;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .example {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .example h2 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        border-bottom: 3px solid #d32f2f;
+        padding-bottom: 10px;
+      }
+
+      /* 신문 레이아웃 */
+      .newspaper {
+        display: grid;
+        grid-template-columns: 1fr 250px;
+        grid-template-rows: auto 1fr auto;
+        gap: 20px;
+        grid-template-areas:
+          "header header"
+          "article aside"
+          "footer footer";
+        min-height: 600px;
+        background: white;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .newspaper header {
+        grid-area: header;
+        background: linear-gradient(135deg, #d32f2f, #f44336);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .newspaper article {
+        grid-area: article;
+        padding: 30px;
+        background: #fafafa;
+      }
+
+      .newspaper article h3 {
+        color: #d32f2f;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #d32f2f;
+        padding-bottom: 10px;
+      }
+
+      .newspaper article p {
+        margin-bottom: 15px;
+        text-align: justify;
+        color: #333;
+      }
+
+      .newspaper aside {
+        grid-area: aside;
+        background: #e8f5e8;
+        padding: 20px;
+        border-left: 3px solid #4caf50;
+      }
+
+      .newspaper aside h4 {
+        color: #2e7d32;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .newspaper aside ul {
+        list-style: none;
+      }
+
+      .newspaper aside li {
+        margin-bottom: 10px;
+        padding: 8px;
+        background: white;
+        border-radius: 5px;
+        border-left: 3px solid #4caf50;
+      }
+
+      .newspaper aside li a {
+        color: #2e7d32;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .newspaper aside li a:hover {
+        color: #1b5e20;
+      }
+
+      .newspaper footer {
+        grid-area: footer;
+        background: #333;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      /* 반응형 버전 */
+      .newspaper-responsive {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 20px;
+        grid-template-areas:
+          "header"
+          "article"
+          "aside"
+          "footer";
+        min-height: 600px;
+        background: white;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .newspaper-responsive header {
+        grid-area: header;
+        background: linear-gradient(135deg, #1976d2, #2196f3);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .newspaper-responsive article {
+        grid-area: article;
+        padding: 30px;
+        background: #fafafa;
+      }
+
+      .newspaper-responsive article h3 {
+        color: #1976d2;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #1976d2;
+        padding-bottom: 10px;
+      }
+
+      .newspaper-responsive aside {
+        grid-area: aside;
+        background: #e3f2fd;
+        padding: 20px;
+        border-left: 3px solid #2196f3;
+      }
+
+      .newspaper-responsive aside h4 {
+        color: #1565c0;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .newspaper-responsive aside ul {
+        list-style: none;
+      }
+
+      .newspaper-responsive aside li {
+        margin-bottom: 10px;
+        padding: 8px;
+        background: white;
+        border-radius: 5px;
+        border-left: 3px solid #2196f3;
+      }
+
+      .newspaper-responsive aside li a {
+        color: #1565c0;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .newspaper-responsive footer {
+        grid-area: footer;
+        background: #333;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      .code-block {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 20px;
+        border-radius: 10px;
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow-x: auto;
+        margin-top: 20px;
+      }
+
+      .highlight {
+        color: #68d391;
+      }
+
+      .property {
+        color: #63b3ed;
+      }
+
+      .value {
+        color: #f6e05e;
+      }
+
+      .comment {
+        color: #a0aec0;
+      }
+
+      .demo-section {
+        margin-bottom: 30px;
+      }
+
+      .demo-section h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .demo-section p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📰 신문 레이아웃 - CSS Grid</h1>
+
+      <div class="example">
+        <h2>신문 스타일 레이아웃</h2>
+        <p>
+          Grid Template Areas를 사용하여 신문과 같은 레이아웃을
+          만들어보겠습니다.
+        </p>
+
+        <div class="demo-section">
+          <h3>1. 데스크톱 버전 (2열 레이아웃)</h3>
+          <p>
+            헤더, 메인 기사, 사이드바, 푸터로 구성된 전형적인 신문
+            레이아웃입니다.
+          </p>
+
+          <div class="newspaper">
+            <header>📰 데일리 뉴스</header>
+            <article>
+              <h3>주요 뉴스</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum.
+              </p>
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo.
+              </p>
+            </article>
+            <aside>
+              <h4>관련 기사</h4>
+              <ul>
+                <li><a href="#">경제 뉴스</a></li>
+                <li><a href="#">스포츠 뉴스</a></li>
+                <li><a href="#">기술 뉴스</a></li>
+                <li><a href="#">문화 뉴스</a></li>
+                <li><a href="#">날씨 정보</a></li>
+              </ul>
+            </aside>
+            <footer>© 2024 데일리 뉴스. All rights reserved.</footer>
+          </div>
+
+          <div class="code-block">
+            <span class="property">.newspaper</span> {<br />
+            &nbsp;&nbsp;<span class="property">display</span>:
+            <span class="value">grid</span>;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-columns</span>:
+            <span class="value">1fr 250px</span>;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-rows</span>:
+            <span class="value">auto 1fr auto</span>;<br />
+            &nbsp;&nbsp;<span class="property">gap</span>:
+            <span class="value">20px</span>;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-areas</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"header header"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"article aside"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"footer footer"</span
+            >;<br />
+            }<br /><br />
+            <span class="comment">/* 각 영역에 grid-area 지정 */</span><br />
+            <span class="property">header</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">header</span>; }<br />
+            <span class="property">article</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">article</span>; }<br />
+            <span class="property">aside</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">aside</span>; }<br />
+            <span class="property">footer</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">footer</span>; }
+          </div>
+        </div>
+
+        <div class="demo-section">
+          <h3>2. 모바일 버전 (1열 레이아웃)</h3>
+          <p>화면이 좁을 때는 1열로 변경되어 세로로 배치됩니다.</p>
+
+          <div class="newspaper-responsive">
+            <header>📱 모바일 뉴스</header>
+            <article>
+              <h3>주요 뉴스</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum.
+              </p>
+            </article>
+            <aside>
+              <h4>관련 기사</h4>
+              <ul>
+                <li><a href="#">경제 뉴스</a></li>
+                <li><a href="#">스포츠 뉴스</a></li>
+                <li><a href="#">기술 뉴스</a></li>
+                <li><a href="#">문화 뉴스</a></li>
+              </ul>
+            </aside>
+            <footer>© 2024 모바일 뉴스. All rights reserved.</footer>
+          </div>
+
+          <div class="code-block">
+            <span class="comment">/* 모바일용 미디어 쿼리 */</span><br />
+            <span class="property">@media</span> (<span class="property"
+              >max-width</span
+            >: <span class="value">768px</span>) {<br />
+            &nbsp;&nbsp;<span class="property">.newspaper</span> {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="property"
+              >grid-template-columns</span
+            >: <span class="value">1fr</span>;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="property"
+              >grid-template-areas</span
+            >:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"header"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"article"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"aside"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"footer"</span
+            >;<br />
+            &nbsp;&nbsp;}<br />
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

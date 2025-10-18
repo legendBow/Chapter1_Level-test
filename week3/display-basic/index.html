@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display 속성 실습 예제</title>
+
+    <!-- 스타일시트 임포트 (우선순위 순서대로) -->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/block.css" />
+    <link rel="stylesheet" href="./css/inline.css" />
+    <link rel="stylesheet" href="./css/inline-block.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/form.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>🎨 Display 속성 실습 예제</h1>
+
+      <!-- 예제 1: Block 요소 -->
+      <div class="section">
+        <h2>1️⃣ Block 요소 예제</h2>
+        <p>Block 요소는 전체 가로 너비를 차지하고 새로운 줄에서 시작합니다.</p>
+
+        <div class="block-demo">
+          <div class="block-box">📦 Block Box 1 - 전체 너비 차지</div>
+          <div class="block-box">📦 Block Box 2 - 새로운 줄에서 시작</div>
+          <div class="block-box">📦 Block Box 3 - 새로운 줄에서 시작</div>
+        </div>
+
+        <p style="color: #666; font-style: italic; margin-top: 20px">
+          각 박스가 새로운 줄에서 시작하고 전체 너비를 차지하는 것을 확인하세요.
+        </p>
+
+        <hr style="margin: 20px 0; border: 1px solid #ecf0f1" />
+
+        <h3 style="color: #555; margin-top: 20px; margin-bottom: 15px">
+          크기가 지정된 Block 요소
+        </h3>
+        <div class="block-demo">
+          <div class="block-box-fixed">📦 고정 너비 300px</div>
+          <div class="block-box-fixed">📦 고정 너비 300px</div>
+        </div>
+
+        <p style="color: #666; font-style: italic">
+          너비를 300px로 제한해도 여전히 새로운 줄에서 시작합니다.
+        </p>
+
+        <hr style="margin: 20px 0; border: 1px solid #ecf0f1" />
+
+        <h3 style="color: #555; margin-top: 20px; margin-bottom: 15px">
+          중앙 정렬된 Block 요소
+        </h3>
+        <div class="block-demo">
+          <div class="block-box-centered">🎯 중앙 정렬 (margin: 0 auto)</div>
+        </div>
+
+        <p style="color: #666; font-style: italic">
+          margin: 0 auto를 사용하여 Block 요소를 수평 중앙 정렬했습니다.
+        </p>
+      </div>
+
+      <!-- 예제 2: Inline 요소 -->
+      <div class="section">
+        <h2>2️⃣ Inline 요소 예제</h2>
+        <p>
+          Inline 요소는 필요한 만큼만 너비를 차지하고 같은 줄에 여러 요소를
+          배치할 수 있습니다.
+        </p>
+
+        <div class="inline-demo">
+          <span class="inline-text">
+            이 문장에는
+            <span class="inline-box">Inline 1</span>
+            <span class="inline-box">Inline 2</span>
+            <span class="inline-box">Inline 3</span>
+            와 같은 인라인 요소가 있습니다.
+          </span>
+        </div>
+
+        <p style="color: #666; font-style: italic; margin-top: 20px">
+          모든 요소가 텍스트처럼 같은 줄에 배치되는 것을 확인하세요.
+        </p>
+
+        <hr style="margin: 20px 0; border: 1px solid #ecf0f1" />
+
+        <h3 style="color: #555; margin-top: 20px; margin-bottom: 15px">
+          Inline 요소는 width/height 무시
+        </h3>
+        <div class="inline-demo">
+          <span class="inline-text">
+            이
+            <span class="inline-box" style="margin: 20px; padding: 20px"
+              >요소</span
+            >는 margin과 padding이 좌우만 적용되고 상하는 무시됩니다.
+          </span>
+        </div>
+
+        <p style="color: #666; font-style: italic">
+          상하 여백이 시각적으로 보이지 않습니다. 오직 좌우만 작동합니다.
+        </p>
+      </div>
+
+      <!-- 예제 3: Inline-Block 요소 -->
+      <div class="section">
+        <h2>3️⃣ Inline-Block 요소 예제</h2>
+        <p>
+          Inline-block 요소는 같은 줄에 여러 요소를 배치하면서도 크기를 조정할
+          수 있습니다.
+        </p>
+
+        <div class="inline-block-demo">
+          <div class="card">
+            <div class="card-header">📱 Card 1</div>
+            <div class="card-body">높이와 너비 조정 가능</div>
+          </div>
+          <div class="card">
+            <div class="card-header">🎨 Card 2</div>
+            <div class="card-body">같은 줄에 배치됨</div>
+          </div>
+          <div class="card">
+            <div class="card-header">⚡ Card 3</div>
+            <div class="card-body">상하 여백도 적용됨</div>
+          </div>
+        </div>
+
+        <p style="color: #666; font-style: italic; margin-top: 20px">
+          3개의 카드가 같은 줄에 배치되면서도 각각 정확한 크기를 가집니다.
+          마우스를 올려보세요!
+        </p>
+      </div>
+
+      <!-- 예제 4: 네비게이션 바 -->
+      <div class="section">
+        <h2>4️⃣ 네비게이션 바 (Inline-Block 활용)</h2>
+        <p>실무에서 자주 사용되는 네비게이션 메뉴 구현:</p>
+
+        <div class="navbar">
+          <a href="#" class="nav-item active">🏠 홈</a>
+          <a href="#" class="nav-item">📖 소개</a>
+          <a href="#" class="nav-item">🛍️ 제품</a>
+          <a href="#" class="nav-item">💬 블로그</a>
+          <a href="#" class="nav-item">📞 연락처</a>
+        </div>
+
+        <p style="color: #666; font-style: italic">
+          메뉴 항목들을 마우스로 가리켜보세요. Inline-block으로 수평 배치되면서
+          padding과 background가 정상 작동합니다.
+        </p>
+      </div>
+
+      <!-- 예제 5: 버튼 그룹 -->
+      <div class="section">
+        <h2>5️⃣ 버튼 그룹 (Inline-Block 활용)</h2>
+        <p>여러 버튼을 한 줄에 배치:</p>
+
+        <div class="button-group">
+          <button class="btn btn-primary">✅ 확인</button>
+          <button class="btn btn-success">💾 저장</button>
+          <button class="btn btn-danger">🗑️ 삭제</button>
+        </div>
+
+        <p style="color: #666; font-style: italic">
+          버튼들을 마우스로 가리켜보세요. Display를 이용한 정렬입니다.
+        </p>
+      </div>
+
+      <!-- 예제 6: 배지/태그 -->
+      <div class="section">
+        <h2>6️⃣ 배지/태그 (Inline-Block 활용)</h2>
+        <p>블로그 포스트나 상품에 사용되는 배지 디자인:</p>
+
+        <div class="badge-demo">
+          <p style="margin-bottom: 10px">
+            <span class="badge badge-blue">CSS</span>
+            <span class="badge badge-green">초급</span>
+            <span class="badge badge-red">필독</span>
+            <span class="badge badge-yellow">추천</span>
+          </p>
+          <p style="margin-bottom: 10px">
+            <span class="badge badge-blue">JavaScript</span>
+            <span class="badge badge-green">중급</span>
+            <span class="badge badge-blue">웹 개발</span>
+          </p>
+        </div>
+
+        <p style="color: #666; font-style: italic">
+          배지들이 텍스트처럼 자동으로 줄바꿈됩니다.
+        </p>
+      </div>
+
+      <!-- 예제 8: 폼 -->
+      <div class="section">
+        <h2>7️⃣ 폼 디자인 (Block 활용)</h2>
+        <p>Block과 Inline을 혼합한 폼 디자인:</p>
+
+        <form>
+          <div class="form-group">
+            <label for="name">👤 이름</label>
+            <input type="text" id="name" placeholder="이름을 입력하세요" />
+            <div class="hint-text">실명으로 입력해주세요</div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">✉️ 이메일</label>
+            <input type="email" id="email" placeholder="example@email.com" />
+            <div class="hint-text">유효한 이메일 주소를 입력해주세요</div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">📞 전화번호</label>
+            <input type="text" id="phone" placeholder="010-1234-5678" />
+            <div class="hint-text">하이픈(-)을 포함하여 입력해주세요</div>
+          </div>
+
+          <div class="form-group">
+            <label for="category">🏷️ 관심분야</label>
+            <select id="category">
+              <option>선택해주세요</option>
+              <option>💻 개발</option>
+              <option>🎨 디자인</option>
+              <option>📊 마케팅</option>
+              <option>📱 모바일</option>
+              <option>🌐 웹</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">💬 메시지</label>
+            <textarea
+              id="message"
+              placeholder="자유롭게 작성해주세요..."
+            ></textarea>
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="btn btn-success">✅ 제출</button>
+            <button type="reset" class="btn btn-primary">🔄 초기화</button>
+          </div>
+        </form>
+
+        <p style="color: #666; font-style: italic; margin-top: 20px">
+          각 입력 필드는 Block 요소로 전체 너비를 차지합니다. 레이블과 입력
+          필드가 세로로 정렬됩니다.
+        </p>
+      </div>
+
+      <!-- 요약 -->
+      <div class="section">
+        <h2>📚 핵심 정리</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 15px">
+          <tr style="background: #ecf0f1">
+            <th
+              style="border: 1px solid #bdc3c7; padding: 12px; text-align: left"
+            >
+              속성
+            </th>
+            <th
+              style="border: 1px solid #bdc3c7; padding: 12px; text-align: left"
+            >
+              특징
+            </th>
+            <th
+              style="border: 1px solid #bdc3c7; padding: 12px; text-align: left"
+            >
+              사용 예
+            </th>
+          </tr>
+          <tr>
+            <td
+              style="
+                border: 1px solid #bdc3c7;
+                padding: 12px;
+                background: #e3f2fd;
+              "
+            >
+              <strong>Block</strong>
+            </td>
+            <td style="border: 1px solid #bdc3c7; padding: 12px">
+              전체 너비 차지, 새 줄 시작
+            </td>
+            <td style="border: 1px solid #bdc3c7; padding: 12px">
+              페이지 레이아웃, 폼
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                border: 1px solid #bdc3c7;
+                padding: 12px;
+                background: #f0f4c3;
+              "
+            >
+              <strong>Inline</strong>
+            </td>
+            <td style="border: 1px solid #bdc3c7; padding: 12px">
+              필요한 만큼만 너비, 같은 줄
+            </td>
+            <td style="border: 1px solid #bdc3c7; padding: 12px">
+              텍스트 강조, 링크
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                border: 1px solid #bdc3c7;
+                padding: 12px;
+                background: #e8f5e9;
+              "
+            >
+              <strong>Inline-Block</strong>
+            </td>
+            <td style="border: 1px solid #bdc3c7; padding: 12px">
+              크기 조정 + 같은 줄 배치
+            </td>
+            <td style="border: 1px solid #bdc3c7; padding: 12px">
+              카드, 배지, 버튼
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 스크립트 -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>

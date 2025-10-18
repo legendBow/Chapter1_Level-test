@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Areas - CSS Grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .example {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .example h2 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 10px;
+      }
+
+      .example p {
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      /* 기본 웹사이트 레이아웃 */
+      .website-layout {
+        display: grid;
+        grid-template-areas:
+          "header header header"
+          "nav main sidebar"
+          "footer footer footer";
+        grid-template-columns: 200px 1fr 250px;
+        grid-template-rows: 80px 1fr 60px;
+        gap: 20px;
+        min-height: 500px;
+        margin-bottom: 30px;
+      }
+
+      .website-layout header {
+        grid-area: header;
+        background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+
+      .website-layout nav {
+        grid-area: nav;
+        background: #4ecdc4;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .website-layout nav ul {
+        list-style: none;
+      }
+
+      .website-layout nav li {
+        margin-bottom: 15px;
+      }
+
+      .website-layout nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .website-layout nav a:hover {
+        color: #2c3e50;
+      }
+
+      .website-layout main {
+        grid-area: main;
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      .website-layout main h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .website-layout main p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .website-layout aside {
+        grid-area: sidebar;
+        background: #96ceb4;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .website-layout aside h4 {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .website-layout aside ul {
+        list-style: none;
+      }
+
+      .website-layout aside li {
+        margin-bottom: 10px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+      }
+
+      .website-layout footer {
+        grid-area: footer;
+        background: #333;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+
+      /* 대시보드 레이아웃 */
+      .dashboard-layout {
+        display: grid;
+        grid-template-areas:
+          "header header header header"
+          "sidebar stats stats stats"
+          "sidebar chart chart chart"
+          "sidebar recent recent recent";
+        grid-template-columns: 250px 1fr 1fr 1fr;
+        grid-template-rows: 70px 150px 200px 150px;
+        gap: 20px;
+        min-height: 600px;
+        margin-bottom: 30px;
+      }
+
+      .dashboard-layout .header {
+        grid-area: header;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+
+      .dashboard-layout .sidebar {
+        grid-area: sidebar;
+        background: #2c3e50;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .dashboard-layout .sidebar h4 {
+        margin-bottom: 20px;
+        color: #ecf0f1;
+      }
+
+      .dashboard-layout .sidebar ul {
+        list-style: none;
+      }
+
+      .dashboard-layout .sidebar li {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+
+      .dashboard-layout .sidebar li:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .dashboard-layout .stats {
+        grid-area: stats;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+
+      .stat-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .stat-card h4 {
+        color: #667eea;
+        font-size: 2rem;
+        margin-bottom: 5px;
+      }
+
+      .stat-card p {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .dashboard-layout .chart {
+        grid-area: chart;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 1.2rem;
+      }
+
+      .dashboard-layout .recent {
+        grid-area: recent;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .dashboard-layout .recent h4 {
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .dashboard-layout .recent ul {
+        list-style: none;
+      }
+
+      .dashboard-layout .recent li {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        color: #666;
+      }
+
+      /* 복잡한 레이아웃 */
+      .complex-layout {
+        display: grid;
+        grid-template-areas:
+          "hero hero hero hero"
+          "feature1 feature2 feature3 feature4"
+          "content content content sidebar"
+          "gallery gallery gallery sidebar"
+          "footer footer footer footer";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 200px 150px 200px 200px 80px;
+        gap: 20px;
+        min-height: 800px;
+        margin-bottom: 30px;
+      }
+
+      .complex-layout .hero {
+        grid-area: hero;
+        background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+
+      .complex-layout .feature {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .complex-layout .feature1 {
+        grid-area: feature1;
+      }
+      .complex-layout .feature2 {
+        grid-area: feature2;
+      }
+      .complex-layout .feature3 {
+        grid-area: feature3;
+      }
+      .complex-layout .feature4 {
+        grid-area: feature4;
+      }
+
+      .complex-layout .content {
+        grid-area: content;
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      .complex-layout .content h3 {
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .complex-layout .content p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .complex-layout .sidebar {
+        grid-area: sidebar;
+        background: #e9ecef;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .complex-layout .gallery {
+        grid-area: gallery;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .gallery-item {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        height: 60px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.8rem;
+      }
+
+      .complex-layout .footer {
+        grid-area: footer;
+        background: #333;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+
+      /* 반응형 레이아웃 */
+      .responsive-layout {
+        display: grid;
+        grid-template-areas:
+          "header"
+          "nav"
+          "main"
+          "sidebar"
+          "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+        gap: 20px;
+        min-height: 500px;
+        margin-bottom: 30px;
+      }
+
+      .responsive-layout header {
+        grid-area: header;
+        background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+
+      .responsive-layout nav {
+        grid-area: nav;
+        background: #96ceb4;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .responsive-layout nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .responsive-layout nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .responsive-layout main {
+        grid-area: main;
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      .responsive-layout aside {
+        grid-area: sidebar;
+        background: #e9ecef;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .responsive-layout footer {
+        grid-area: footer;
+        background: #333;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      .code-block {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 20px;
+        border-radius: 10px;
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow-x: auto;
+        margin-top: 20px;
+      }
+
+      .highlight {
+        color: #68d391;
+      }
+
+      .property {
+        color: #63b3ed;
+      }
+
+      .value {
+        color: #f6e05e;
+      }
+
+      .comment {
+        color: #a0aec0;
+      }
+
+      .demo-section {
+        margin-bottom: 40px;
+      }
+
+      .demo-section h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .demo-section p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      /* 반응형 조정 */
+      @media (max-width: 768px) {
+        .website-layout {
+          grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto 1fr auto auto;
+        }
+
+        .dashboard-layout {
+          grid-template-areas:
+            "header header header header"
+            "stats stats stats stats"
+            "chart chart chart chart"
+            "recent recent recent recent"
+            "sidebar sidebar sidebar sidebar";
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto auto auto;
+        }
+
+        .complex-layout {
+          grid-template-areas:
+            "hero hero hero hero"
+            "feature1 feature2 feature3 feature4"
+            "content content content content"
+            "sidebar sidebar sidebar sidebar"
+            "gallery gallery gallery gallery"
+            "footer footer footer footer";
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto auto auto auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🏗️ Template Areas - CSS Grid</h1>
+
+      <div class="example">
+        <h2>Grid Template Areas 활용</h2>
+        <p>
+          Grid Template Areas를 사용하여 복잡한 레이아웃을 직관적으로 만들 수
+          있습니다. ASCII 아트 형식으로 영역을 정의합니다.
+        </p>
+
+        <div class="demo-section">
+          <h3>1. 기본 웹사이트 레이아웃</h3>
+          <p>
+            전형적인 웹사이트 레이아웃입니다. 헤더, 네비게이션, 메인 콘텐츠,
+            사이드바, 푸터로 구성됩니다.
+          </p>
+
+          <div class="website-layout">
+            <header>🏠 웹사이트 헤더</header>
+            <nav>
+              <ul>
+                <li><a href="#">홈</a></li>
+                <li><a href="#">소개</a></li>
+                <li><a href="#">서비스</a></li>
+                <li><a href="#">연락처</a></li>
+              </ul>
+            </nav>
+            <main>
+              <h3>메인 콘텐츠</h3>
+              <p>
+                이곳은 웹사이트의 주요 콘텐츠가 들어가는 영역입니다. Grid
+                Template Areas를 사용하여 레이아웃을 구성했습니다.
+              </p>
+              <p>
+                각 영역은 grid-area 속성을 사용하여 이름을 지정하고,
+                grid-template-areas에서 ASCII 아트 형식으로 배치합니다.
+              </p>
+            </main>
+            <aside>
+              <h4>사이드바</h4>
+              <ul>
+                <li>관련 링크 1</li>
+                <li>관련 링크 2</li>
+                <li>관련 링크 3</li>
+                <li>관련 링크 4</li>
+              </ul>
+            </aside>
+            <footer>© 2024 웹사이트. All rights reserved.</footer>
+          </div>
+
+          <div class="code-block">
+            <span class="property">.website-layout</span> {<br />
+            &nbsp;&nbsp;<span class="property">display</span>:
+            <span class="value">grid</span>;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-areas</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"header header header"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"nav main sidebar"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"footer footer footer"</span
+            >;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-columns</span>:
+            <span class="value">200px 1fr 250px</span>;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-rows</span>:
+            <span class="value">80px 1fr 60px</span>;<br />
+            &nbsp;&nbsp;<span class="property">gap</span>:
+            <span class="value">20px</span>;<br />
+            }<br /><br />
+            <span class="comment">/* 각 영역에 이름 지정 */</span><br />
+            <span class="property">header</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">header</span>; }<br />
+            <span class="property">nav</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">nav</span>; }<br />
+            <span class="property">main</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">main</span>; }<br />
+            <span class="property">aside</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">sidebar</span>; }<br />
+            <span class="property">footer</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">footer</span>; }
+          </div>
+        </div>
+
+        <div class="demo-section">
+          <h3>2. 대시보드 레이아웃</h3>
+          <p>
+            관리자 대시보드 스타일의 복잡한 레이아웃입니다. 통계, 차트, 최근
+            활동 등 다양한 정보를 표시합니다.
+          </p>
+
+          <div class="dashboard-layout">
+            <div class="header">📊 관리자 대시보드</div>
+            <div class="sidebar">
+              <h4>메뉴</h4>
+              <ul>
+                <li>대시보드</li>
+                <li>사용자 관리</li>
+                <li>통계</li>
+                <li>설정</li>
+                <li>로그아웃</li>
+              </ul>
+            </div>
+            <div class="stats">
+              <div class="stat-card">
+                <h4>1,234</h4>
+                <p>총 사용자</p>
+              </div>
+              <div class="stat-card">
+                <h4>5,678</h4>
+                <p>총 주문</p>
+              </div>
+              <div class="stat-card">
+                <h4>₩12,345,678</h4>
+                <p>총 매출</p>
+              </div>
+            </div>
+            <div class="chart">📈 매출 차트 영역</div>
+            <div class="recent">
+              <h4>최근 활동</h4>
+              <ul>
+                <li>새로운 사용자 가입</li>
+                <li>주문 완료</li>
+                <li>결제 처리</li>
+                <li>상품 등록</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <span class="property">.dashboard-layout</span> {<br />
+            &nbsp;&nbsp;<span class="property">display</span>:
+            <span class="value">grid</span>;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-areas</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"header header header header"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"sidebar stats stats stats"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"sidebar chart chart chart"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"sidebar recent recent recent"</span
+            >;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-columns</span>:
+            <span class="value">250px 1fr 1fr 1fr</span>;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-rows</span>:
+            <span class="value">70px 150px 200px 150px</span>;<br />
+            &nbsp;&nbsp;<span class="property">gap</span>:
+            <span class="value">20px</span>;<br />
+            }
+          </div>
+        </div>
+
+        <div class="demo-section">
+          <h3>3. 복잡한 마케팅 레이아웃</h3>
+          <p>
+            히어로 섹션, 피처 카드, 콘텐츠, 갤러리 등이 포함된 복잡한 마케팅
+            페이지 레이아웃입니다.
+          </p>
+
+          <div class="complex-layout">
+            <div class="hero">🚀 혁신적인 솔루션</div>
+            <div class="feature feature1">
+              <h4>빠른 속도</h4>
+              <p>최적화된 성능</p>
+            </div>
+            <div class="feature feature2">
+              <h4>안전한 보안</h4>
+              <p>엔터프라이즈급 보안</p>
+            </div>
+            <div class="feature feature3">
+              <h4>쉬운 사용</h4>
+              <p>직관적인 인터페이스</p>
+            </div>
+            <div class="feature feature4">
+              <h4>24/7 지원</h4>
+              <p>언제든지 도움</p>
+            </div>
+            <div class="content">
+              <h3>주요 특징</h3>
+              <p>
+                우리의 솔루션은 최신 기술을 활용하여 사용자에게 최고의 경험을
+                제공합니다. 빠른 속도, 안전한 보안, 쉬운 사용성, 그리고 24시간
+                지원을 통해 고객의 성공을 보장합니다.
+              </p>
+            </div>
+            <div class="sidebar">
+              <h4>관련 정보</h4>
+              <p>
+                더 많은 정보를 원하시나요? 우리의 전문가 팀이 도와드리겠습니다.
+              </p>
+            </div>
+            <div class="gallery">
+              <div class="gallery-item">갤러리 1</div>
+              <div class="gallery-item">갤러리 2</div>
+              <div class="gallery-item">갤러리 3</div>
+              <div class="gallery-item">갤러리 4</div>
+              <div class="gallery-item">갤러리 5</div>
+              <div class="gallery-item">갤러리 6</div>
+            </div>
+            <div class="footer">© 2024 혁신 솔루션. All rights reserved.</div>
+          </div>
+
+          <div class="code-block">
+            <span class="property">.complex-layout</span> {<br />
+            &nbsp;&nbsp;<span class="property">display</span>:
+            <span class="value">grid</span>;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-areas</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"hero hero hero hero"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"feature1 feature2 feature3 feature4"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"content content content sidebar"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"gallery gallery gallery sidebar"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"footer footer footer footer"</span
+            >;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-columns</span>:
+            <span class="value">repeat(4, 1fr)</span>;<br />
+            &nbsp;&nbsp;<span class="property">grid-template-rows</span>:
+            <span class="value">200px 150px 200px 200px 80px</span>;<br />
+            &nbsp;&nbsp;<span class="property">gap</span>:
+            <span class="value">20px</span>;<br />
+            }
+          </div>
+        </div>
+
+        <div class="demo-section">
+          <h3>4. 반응형 모바일 레이아웃</h3>
+          <p>
+            모바일 화면을 위한 1열 레이아웃입니다. 미디어 쿼리를 사용하여
+            반응형으로 변경됩니다.
+          </p>
+
+          <div class="responsive-layout">
+            <header>📱 모바일 웹사이트</header>
+            <nav>
+              <ul>
+                <li><a href="#">홈</a></li>
+                <li><a href="#">소개</a></li>
+                <li><a href="#">서비스</a></li>
+                <li><a href="#">연락처</a></li>
+              </ul>
+            </nav>
+            <main>
+              <h3>모바일 최적화</h3>
+              <p>
+                이 레이아웃은 모바일 화면에 최적화되어 있습니다. 모든 요소가
+                세로로 배치되어 터치하기 쉽고 읽기 편합니다.
+              </p>
+            </main>
+            <aside>
+              <h4>모바일 사이드바</h4>
+              <p>모바일에서는 사이드바가 메인 콘텐츠 아래에 배치됩니다.</p>
+            </aside>
+            <footer>© 2024 모바일 웹사이트. All rights reserved.</footer>
+          </div>
+
+          <div class="code-block">
+            <span class="comment">/* 모바일용 미디어 쿼리 */</span><br />
+            <span class="property">@media</span> (<span class="property"
+              >max-width</span
+            >: <span class="value">768px</span>) {<br />
+            &nbsp;&nbsp;<span class="property">.website-layout</span> {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="property"
+              >grid-template-areas</span
+            >:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"header"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"nav"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"main"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"sidebar"</span
+            ><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value"
+              >"footer"</span
+            >;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="property"
+              >grid-template-columns</span
+            >: <span class="value">1fr</span>;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="property"
+              >grid-template-rows</span
+            >: <span class="value">auto auto 1fr auto auto</span>;<br />
+            &nbsp;&nbsp;}<br />
+            }
+          </div>
+        </div>
+
+        <div class="demo-section">
+          <h3>Template Areas의 장점</h3>
+          <div class="code-block">
+            <span class="comment">/* 1. 직관적인 레이아웃 정의 */</span><br />
+            <span class="property">grid-template-areas</span>:<br />
+            &nbsp;&nbsp;<span class="value">"header header header"</span><br />
+            &nbsp;&nbsp;<span class="value">"nav main sidebar"</span><br />
+            &nbsp;&nbsp;<span class="value">"footer footer footer"</span
+            >;<br /><br />
+            <span class="comment">/* 2. 쉬운 반응형 변경 */</span><br />
+            <span class="property">@media</span> (<span class="property"
+              >max-width</span
+            >: <span class="value">768px</span>) {<br />
+            &nbsp;&nbsp;<span class="property">grid-template-areas</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"header"</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"nav"</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"main"</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"sidebar"</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"footer"</span>;<br />
+            }<br /><br />
+            <span class="comment">/* 3. 명확한 영역 구분 */</span><br />
+            <span class="property">.header</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">header</span>; }<br />
+            <span class="property">.main</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">main</span>; }<br />
+            <span class="property">.sidebar</span> {
+            <span class="property">grid-area</span>:
+            <span class="value">sidebar</span>; }
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

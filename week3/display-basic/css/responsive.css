@@ -1,0 +1,85 @@
+/**
+ * 반응형 디자인 - 다양한 화면 크기에 대응
+ * 
+ * Breakpoints (일반적인 미디어 쿼리 기준):
+ * - Desktop: 1200px 이상
+ * - Tablet: 768px - 1199px
+ * - Mobile: 480px - 767px
+ * - Small Mobile: 480px 이하
+ */
+
+/* ========== 태블릿 사이즈 (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  /* 카드: 2개 컬럼 (50%) */
+  .card {
+    width: calc(50% - 14px);
+  }
+
+  /* 상품: 2개 컬럼 (50%) */
+  .product-item {
+    width: calc(50% - 12px);
+  }
+
+  /* 제목: 크기 축소 */
+  h1 {
+    font-size: 2em;
+  }
+
+  /* 섹션: 패딩 축소 */
+  .section {
+    padding: 20px;
+  }
+}
+
+/* ========== 모바일 사이즈 (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  /* 카드: 1개 컬럼 (100%) */
+  .card {
+    width: calc(100% - 14px);
+  }
+
+  /* 상품: 1개 컬럼 (100%) */
+  .product-item {
+    width: calc(100% - 12px);
+  }
+
+  /* 네비게이션: 세로 배치 */
+  .nav-item {
+    /* display: block으로 변경하여 세로 배치 */
+    display: block;
+
+    /* 마진: 상하 5px, 좌우 0 */
+    margin: 5px 0;
+  }
+
+  /* 버튼: 전체 너비로 펼침 */
+  .btn {
+    /* display: block으로 전체 너비 차지 */
+    display: block;
+
+    /* 너비: 100% */
+    width: 100%;
+
+    /* 마진: 상하 8px, 좌우 0 */
+    margin: 8px 0;
+  }
+}
+
+/*
+   * 반응형 디자인 팁:
+   * 
+   * 1. Mobile First 접근 (권장):
+   *    - 먼저 모바일 기본 스타일 작성
+   *    - 그 후 min-width 미디어 쿼리로 확대
+   * 
+   * 2. 현재 코드는 Desktop First:
+   *    - 데스크톱 기본 스타일
+   *    - max-width로 축소
+   * 
+   * 3. 일반적인 breakpoint:
+   *    - 320px: 초소형 휴대폰
+   *    - 480px: 휴대폰
+   *    - 768px: 태블릿
+   *    - 1024px: 큰 태블릿/소형 데스크톱
+   *    - 1200px: 데스크톱
+   */

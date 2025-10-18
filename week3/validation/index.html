@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼 유효성 검사 실습</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>회원가입</h1>
+      <form id="signupForm" class="form" novalidate>
+        <!-- 이름 입력 -->
+        <div class="form-group">
+          <label for="name">이름 *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="이름을 입력하세요"
+            required
+          />
+          <span class="error-message" id="name-error"></span>
+        </div>
+
+        <!-- 이메일 입력 -->
+        <div class="form-group">
+          <label for="email">이메일 *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@email.com"
+            required
+          />
+          <span class="error-message" id="email-error"></span>
+        </div>
+
+        <!-- 비밀번호 입력 -->
+        <div class="form-group">
+          <label for="password">비밀번호 *</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="8자 이상 입력하세요"
+            required
+          />
+          <span class="error-message" id="password-error"></span>
+          <div class="password-strength" id="password-strength">
+            <div class="strength-bar"></div>
+            <span class="strength-text">비밀번호 강도를 확인하세요</span>
+          </div>
+        </div>
+
+        <!-- 비밀번호 확인 -->
+        <div class="form-group">
+          <label for="confirmPassword">비밀번호 확인 *</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="비밀번호를 다시 입력하세요"
+            required
+          />
+          <span class="error-message" id="confirmPassword-error"></span>
+        </div>
+
+        <!-- 전화번호 입력 -->
+        <div class="form-group">
+          <label for="phone">전화번호 *</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="010-1234-5678"
+            required
+          />
+          <span class="error-message" id="phone-error"></span>
+        </div>
+
+        <!-- 생년월일 입력 -->
+        <div class="form-group">
+          <label for="birthdate">생년월일 *</label>
+          <input type="date" id="birthdate" name="birthdate" required />
+          <span class="error-message" id="birthdate-error"></span>
+        </div>
+
+        <!-- 성별 선택 -->
+        <div class="form-group">
+          <label>성별 *</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="gender" value="male" required />
+              <span class="radio-custom"></span>
+              남성
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="gender" value="female" required />
+              <span class="radio-custom"></span>
+              여성
+            </label>
+          </div>
+          <span class="error-message" id="gender-error"></span>
+        </div>
+
+        <!-- 약관 동의 -->
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="terms" name="terms" required />
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-text"
+              >이용약관 및 개인정보처리방침에 동의합니다 *</span
+            >
+          </label>
+          <span class="error-message" id="terms-error"></span>
+        </div>
+
+        <!-- 제출 버튼 -->
+        <button type="submit" class="submit-btn">회원가입</button>
+      </form>
+
+      <!-- 성공 메시지 -->
+      <div id="success-message" class="success-message" style="display: none">
+        <h2>🎉 회원가입이 완료되었습니다!</h2>
+        <p>입력하신 정보가 성공적으로 저장되었습니다.</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
