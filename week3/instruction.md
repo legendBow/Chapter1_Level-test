@@ -24,7 +24,13 @@
 
    4.2 실습 예제 (`position`)
 
-5. CSS Display : `block` `inline` `inline-block`
+5. CSS Selector
+
+   5.1 [노션 이론 링크](https://fringe-polyester-65b.notion.site/CSS-Selector-290d90bb9d9880d8ad16e280067b472c?source=copy_link)
+
+   5.2 [실습 연습 링크](https://flukeout.github.io/)
+
+6. CSS Display : `block` `inline` `inline-block`
 
    5.1 [노션 이론 링크](`https://fringe-polyester-65b.notion.site/CSS-Display-290d90bb9d98801abc0fec488c0e2849?source=copy_link`)
 
