@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="stopToggle()">토글링 멈춤</button>
+    <script>
+        let interval = setInterval(setColor, 1000);
+        function setColor() {
+            if(document.body.style.backgroundColor == 'yellow') {
+                document.body.style.backgroundColor = 'pink';
+            } else {
+                document.body.style.backgroundColor = 'yellow';
+            }
+        }
+        function stopToggle() {
+            clearInterval(interval);
+        }
+    </script>
+</body>
+</html>

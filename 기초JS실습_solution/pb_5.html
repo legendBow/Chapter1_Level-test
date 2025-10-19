@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getWidth()">창너비 가져오기</button>
+    <button onclick="getHeight()">창높이 가져오기</button>
+    <p id="result"></p>
+    <script>
+        function getWidth() {
+            text = "innerWidth : "+window.innerWidth;
+            document.querySelector('#result').innerHTML = text;
+        }
+
+        function getHeight() {
+            text = "innerHeight : "+window.innerHeight;
+            document.querySelector('#result').innerHTML = text;
+        }
+    </script>
+</body>
+</html>
