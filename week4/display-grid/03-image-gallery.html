@@ -368,8 +368,8 @@
             >;<br />
             }<br /><br />
             <span class="property">.gallery-item</span> {<br />
-            &nbsp;&nbsp;<span class="property">aspect-ratio</span>:
-            <span class="value">4/3</span>;<br />
+            &nbsp;&nbsp;<span class="property">aspect-ratio /* 종횡비 */ </span
+            >: <span class="value">4/3</span>;<br />
             &nbsp;&nbsp;<span class="property">border-radius</span>:
             <span class="value">12px</span>;<br />
             &nbsp;&nbsp;<span class="property">overflow</span>:
@@ -499,6 +499,11 @@
 
         <div class="demo-section">
           <h3>auto-fit vs auto-fill 차이점</h3>
+          <div class="comment">
+            1fr은 실제 콘텐츠가 있을 때만 적용됨<br />
+            max: 1fr 이더라도 빈공간이 생긴다는 건 그 열이 실제로 존재하지만
+            내용이 없어서 높이가 0으로 남는 것
+          </div>
           <div class="code-block">
             <span class="comment"
               >/* auto-fit: 여유 공간을 기존 열들이 나눠 가짐 */</span
